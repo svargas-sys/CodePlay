@@ -67,6 +67,7 @@ public class CodePlay extends javax.swing.JFrame {
         btnMostrarJuegos = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         txtSeleccionado = new javax.swing.JTextField();
+        btnHome3 = new javax.swing.JButton();
         btnLimpiar = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
@@ -178,17 +179,30 @@ public class CodePlay extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccionados"));
 
+        btnHome3.setText("HOME");
+        btnHome3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHome3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(txtSeleccionado)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnHome3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(78, 78, 78))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addComponent(txtSeleccionado, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btnHome3)
+                .addGap(0, 41, Short.MAX_VALUE))
         );
 
         btnLimpiar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -689,6 +703,12 @@ public class CodePlay extends javax.swing.JFrame {
         //FIN METODO
     }//GEN-LAST:event_btnCapturarDatosActionPerformed
 
+    private void btnHome3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome3ActionPerformed
+        Gestiones ges = new Gestiones();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
+        ges.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
+        dispose();
+    }//GEN-LAST:event_btnHome3ActionPerformed
+
     
     
     /**
@@ -730,6 +750,7 @@ public class CodePlay extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnCapturarDatos;
+    private javax.swing.JButton btnHome3;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnMostrarJuegos;
     private javax.swing.JCheckBox cb12meses;

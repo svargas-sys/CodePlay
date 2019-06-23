@@ -32,12 +32,18 @@ public class Gestiones extends javax.swing.JFrame {
         btnGestionBD = new javax.swing.JButton();
         btnGestionVenta = new javax.swing.JButton();
         btnQuienesSomos = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("GESTIONES CODE PLAY"));
 
         btnGestionBD.setText("GESTIÓN BD");
+        btnGestionBD.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionBDActionPerformed(evt);
+            }
+        });
 
         btnGestionVenta.setText("GESTIÓN VENTA");
         btnGestionVenta.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +59,13 @@ public class Gestiones extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("CERRAR SESIÓN");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -62,7 +75,8 @@ public class Gestiones extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(btnQuienesSomos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnGestionVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnGestionBD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnGestionBD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(156, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -70,11 +84,13 @@ public class Gestiones extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(67, 67, 67)
                 .addComponent(btnGestionBD)
-                .addGap(77, 77, 77)
+                .addGap(45, 45, 45)
                 .addComponent(btnGestionVenta)
-                .addGap(82, 82, 82)
+                .addGap(49, 49, 49)
                 .addComponent(btnQuienesSomos)
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addGap(54, 54, 54)
+                .addComponent(jButton1)
+                .addContainerGap(83, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -102,6 +118,18 @@ public class Gestiones extends javax.swing.JFrame {
             qs.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
             dispose();
     }//GEN-LAST:event_btnQuienesSomosActionPerformed
+
+    private void btnGestionBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionBDActionPerformed
+            GestionBD gb = new GestionBD();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
+            gb.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
+            dispose();
+    }//GEN-LAST:event_btnGestionBDActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            Login log = new Login();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
+            log.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
+            dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -142,6 +170,7 @@ public class Gestiones extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionBD;
     private javax.swing.JButton btnGestionVenta;
     private javax.swing.JButton btnQuienesSomos;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

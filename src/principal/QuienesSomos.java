@@ -33,7 +33,7 @@ public class QuienesSomos extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        btnVolver = new javax.swing.JButton();
+        btnHome4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -47,10 +47,10 @@ public class QuienesSomos extends javax.swing.JFrame {
 
         jLabel4.setText("SERGIO VARGAS");
 
-        btnVolver.setText("VOLVER");
-        btnVolver.addActionListener(new java.awt.event.ActionListener() {
+        btnHome4.setText("HOME");
+        btnHome4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVolverActionPerformed(evt);
+                btnHome4ActionPerformed(evt);
             }
         });
 
@@ -68,7 +68,7 @@ public class QuienesSomos extends javax.swing.JFrame {
                 .addContainerGap(160, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnVolver)
+                .addComponent(btnHome4)
                 .addGap(64, 64, 64))
         );
         jPanel1Layout.setVerticalGroup(
@@ -83,7 +83,7 @@ public class QuienesSomos extends javax.swing.JFrame {
                 .addGap(48, 48, 48)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(btnVolver)
+                .addComponent(btnHome4)
                 .addGap(49, 49, 49))
         );
 
@@ -101,11 +101,11 @@ public class QuienesSomos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVolverActionPerformed
+    private void btnHome4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome4ActionPerformed
         Gestiones ges = new Gestiones();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
         ges.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
         dispose();
-    }//GEN-LAST:event_btnVolverActionPerformed
+    }//GEN-LAST:event_btnHome4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,7 +143,7 @@ public class QuienesSomos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVolver;
+    private javax.swing.JButton btnHome4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

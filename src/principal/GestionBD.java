@@ -16,6 +16,7 @@ public class GestionBD extends javax.swing.JFrame {
      */
     public GestionBD() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -29,46 +30,94 @@ public class GestionBD extends javax.swing.JFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
+        btnHome = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
+        btnHome1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
+        btnHome2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("INGRESAR PRODUCTO A BD"));
+
+        btnHome.setText("HOME");
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHomeActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(593, Short.MAX_VALUE)
+                .addComponent(btnHome)
+                .addGap(49, 49, 49))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 492, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(396, Short.MAX_VALUE)
+                .addComponent(btnHome)
+                .addGap(50, 50, 50))
         );
 
         jTabbedPane1.addTab("JUEGOS O MEMBRESIA", jPanel2);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("CLIENTES BD"));
+
+        btnHome1.setText("HOME");
+        btnHome1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHome1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(566, Short.MAX_VALUE)
+                .addComponent(btnHome1)
+                .addGap(76, 76, 76))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 492, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(390, Short.MAX_VALUE)
+                .addComponent(btnHome1)
+                .addGap(56, 56, 56))
         );
 
         jTabbedPane1.addTab("HISTORICO CLIENTES", jPanel3);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("RESULTADO CONSULTAS"));
+
+        btnHome2.setText("HOME");
+        btnHome2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHome2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 715, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(570, Short.MAX_VALUE)
+                .addComponent(btnHome2)
+                .addGap(72, 72, 72))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 492, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(392, Short.MAX_VALUE)
+                .addComponent(btnHome2)
+                .addGap(54, 54, 54))
         );
 
         jTabbedPane1.addTab("REPORTES CODE PLAY", jPanel4);
@@ -86,6 +135,24 @@ public class GestionBD extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnHome2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome2ActionPerformed
+        Gestiones ges = new Gestiones();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
+        ges.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
+        dispose();
+    }//GEN-LAST:event_btnHome2ActionPerformed
+
+    private void btnHome1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHome1ActionPerformed
+        Gestiones ges = new Gestiones();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
+        ges.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
+        dispose();
+    }//GEN-LAST:event_btnHome1ActionPerformed
+
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+        Gestiones ges = new Gestiones();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
+        ges.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
+        dispose();
+    }//GEN-LAST:event_btnHomeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,6 +190,9 @@ public class GestionBD extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHome;
+    private javax.swing.JButton btnHome1;
+    private javax.swing.JButton btnHome2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
