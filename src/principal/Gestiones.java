@@ -122,19 +122,19 @@ public class Gestiones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionVentaActionPerformed
 
     private void btnQuienesSomosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnQuienesSomosActionPerformed
-            QuienesSomos qs = new QuienesSomos();//COSNTRUCTOR PARA LLAMAR A JFRAME CODE PLAY
+            QuienesSomos qs = new QuienesSomos();//LLAMAR EL JFRAME QUIENES SOMOS
             qs.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
             dispose();
     }//GEN-LAST:event_btnQuienesSomosActionPerformed
 
     private void btnGestionBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionBDActionPerformed
-            GestionBD gb = new GestionBD();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
+            GestionBD gb = new GestionBD();//LLAMAR A JFRAME GESTIONES
             gb.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
             dispose();
     }//GEN-LAST:event_btnGestionBDActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-            Login log = new Login();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
+            Login log = new Login();//LLAMAR A JFRAME GESTIONES
             log.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
             dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
