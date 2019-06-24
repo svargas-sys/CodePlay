@@ -150,17 +150,28 @@ public class Login extends javax.swing.JFrame {
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
         //METODO LOGIN PARA INGRESAR A VENTAS
-        String Usuario = "Admin";      //ACA DEFINIMOS EL USUARIO
-        String Contraseña = "asdfg";   //ACA DEFINIMOS LA CONTRASEÑA
+        String UsuarioCC = "Ccogaz";      //ACA DEFINIMOS EL USUARIO
+        String ContraseñaCC = "asdfg";    //ACA DEFINIMOS LA CONTRASEÑA
+        
+        String UsuarioSV = "Svargas";      //ACA DEFINIMOS EL USUARIO
+        String ContraseñaSV = "asdfg";     //ACA DEFINIMOS LA CONTRASEÑA
+        
+        String UsuarioJM = "Jmuñoz";      //ACA DEFINIMOS EL USUARIO
+        String ContraseñaJM = "asdfg";    //ACA DEFINIMOS LA CONTRASEÑA
+        
+        String UsuarioJL = "Jlobos";      //ACA DEFINIMOS EL USUARIO
+        String ContraseñaJL = "asdfg";    //ACA DEFINIMOS LA CONTRASEÑA
+        
         
 //        txtUsuario.setText("Admin");//SACAR PARA FUNCIONALIDAD DE LOGIN
 //        Passw.setText("asdfg");     //SACAR PARA FUNCIONALIDAD DE LOGIN
 
         String Pass = new String(Passw.getPassword());
         
-        
-        
-        if(txtUsuario.getText().equals(Usuario)&& Pass.equals(Contraseña)){
+        if(txtUsuario.getText().equals(UsuarioCC)&& Pass.equals(ContraseñaCC)||
+           txtUsuario.getText().equals(UsuarioSV)&& Pass.equals(ContraseñaSV)||
+           txtUsuario.getText().equals(UsuarioJM)&& Pass.equals(ContraseñaJM)||
+           txtUsuario.getText().equals(UsuarioJL)&& Pass.equals(ContraseñaJL)){
             dispose();//ACA CIERRA JFRAME LOGIN
             JOptionPane.showMessageDialog(null, "Bienvenido a CODE PLAY");//ACA DAMOS LA BIENVENIDA
             Gestiones gt = new Gestiones();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
