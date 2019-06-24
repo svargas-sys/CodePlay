@@ -13,7 +13,11 @@ public class CodePlay extends javax.swing.JFrame {
     public CodePlay() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setResizable(false);   //PARA QUE NO SE MAXIMIZE LA PANTALLA
+        setTitle("CODE PLAY"); //TITULO DE VENTANA
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/logo.png")).getImage());//ACA SE CAMBIA IMAGEN DE VENTANA
         gbd = new GestionBD();
+        
     }
 
     /**

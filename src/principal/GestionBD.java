@@ -5,6 +5,8 @@
  */
 package principal;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Sergio Vargas
@@ -17,6 +19,9 @@ public class GestionBD extends javax.swing.JFrame {
     public GestionBD() {
         initComponents();
         this.setLocationRelativeTo(null);
+        setResizable(false);   //PARA QUE NO SE MAXIMIZE LA PANTALLA
+        setTitle("CODE PLAY"); //TITULO DE VENTANA
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/logo.png")).getImage());//ACA SE CAMBIA IMAGEN DE VENTANA
     }
 
     /**
