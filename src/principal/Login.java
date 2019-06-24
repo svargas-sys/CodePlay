@@ -5,6 +5,7 @@
  */
 package principal;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -178,13 +179,15 @@ public class Login extends javax.swing.JFrame {
 //        Passw.setText("asdfg");     //SACAR PARA FUNCIONALIDAD DE LOGIN
 
         String Pass = new String(Passw.getPassword());
+        Icon logoapp = new ImageIcon(getClass().getResource("/imagenes/logo.png"));
         
         if(txtUsuario.getText().equals(UsuarioCC)&& Pass.equals(ContraseñaCC)||
            txtUsuario.getText().equals(UsuarioSV)&& Pass.equals(ContraseñaSV)||
            txtUsuario.getText().equals(UsuarioJM)&& Pass.equals(ContraseñaJM)||
            txtUsuario.getText().equals(UsuarioJL)&& Pass.equals(ContraseñaJL)){
             dispose();//ACA CIERRA JFRAME LOGIN
-            JOptionPane.showMessageDialog(null, "Bienvenido a CODE PLAY");//ACA DAMOS LA BIENVENIDA
+            JOptionPane.showMessageDialog(null, "Bienvenido a CODE PLAY", "CODE PLAY",
+            JOptionPane.INFORMATION_MESSAGE,logoapp);//ACA DAMOS LA BIENVENIDA Y ADEMAS MOSTRAMOS EL LOGO DE APP
             Gestiones gt = new Gestiones();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
             gt.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME 
         }else{
