@@ -7,14 +7,14 @@ import javax.swing.JTable;
 
 public class GestionBD {
     
-    static Connection conexion = null;
-    static Statement sentencia = null;
-    static ResultSet resultados = null;
-    static String DRIVER = "org.sqlite.JDBC";
-    static String NOMBREBD = "CodePlay.sqlite";
-    static String URL = "jdbc:sqlite:"+NOMBREBD;
+    Connection conexion = null;
+    Statement sentencia = null;
+    ResultSet resultados = null;
+    String DRIVER = "org.sqlite.JDBC";
+    String NOMBREBD = "CodePlay.sqlite";
+    String URL = "jdbc:sqlite:"+NOMBREBD;
     
-    public  void crearBD(){
+    public void crearBD(){
         
         try{
             Class.forName(DRIVER);
@@ -55,7 +55,7 @@ public class GestionBD {
         
     }    
     
-    public static void insertarClientes(int Rut, String nombre, String apellidos, String correo){
+    public void insertarClientes(int Rut, String nombre, String apellidos, String correo){
         
         try{
             Class.forName(DRIVER);
@@ -79,7 +79,7 @@ public class GestionBD {
     }
     
     
-    public static void VerDatos(JTable tablaProducto){
+    public void VerDatos(JTable tablaProducto){
         
         try{
             Class.forName(DRIVER);
@@ -106,38 +106,11 @@ public class GestionBD {
         
         JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
         
-        }
-    }
-    public static void updateClientes(int oldRut, int Rut, String nombre, String apellidos, String correo){
-    /*NO REVISADO*//*NO REVISADO*//*NO REVISADO*//*NO REVISADO*//*NO REVISADO*//*NO REVISADO*//*NO REVISADO*/
-        try{
-            Class.forName(DRIVER);
-            conexion = DriverManager.getConnection(URL);
-            
-            sentencia = conexion.createStatement();
-            String SQL = "UPDATE PRODUCTOS "+
-                    "SET Rut, NOM_PRODU, PRECIO, STOCK, FK_ID, "+
-                    "VALUES '"+nombre+"','"+apellidos+"','"+correo+"', "+
-                    "WHERE (Rut = '"+oldRut+"' )";
-            
-            sentencia.executeUpdate(SQL);
-            JOptionPane.showMessageDialog(null,"Datos ACTUALIZADOS con exito!!","EXITO!",JOptionPane.INFORMATION_MESSAGE );
-            sentencia.close();
-            conexion.close();
-            
-        }catch(ClassNotFoundException | SQLException e){
-            
-            JOptionPane.showMessageDialog(null, "Error: " + e,
-                    "Error!!", JOptionPane.ERROR_MESSAGE);
-        }
-        System.out.println("Datos ingresados a la tabla productos con exito");
-    }//FIN METODO updateProductos...        
+    }  
         
     }//FIN METODO    
     
 
 
-
-
-
-
+    
+}
