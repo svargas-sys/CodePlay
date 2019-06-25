@@ -8,7 +8,7 @@ package principal;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-
+//
 /**
  *
  * @author Sergio Vargas
