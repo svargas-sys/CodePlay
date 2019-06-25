@@ -180,8 +180,8 @@ public class Login extends javax.swing.JFrame {
         String ContraseñaJL = "asdfg";    //ACA DEFINIMOS LA CONTRASEÑA
         
         
-//        txtUsuario.setText("Admin");//SACAR PARA FUNCIONALIDAD DE LOGIN
-//        Passw.setText("asdfg");     //SACAR PARA FUNCIONALIDAD DE LOGIN
+        txtUsuario.setText("Svargas");//SACAR PARA FUNCIONALIDAD DE LOGIN
+        Passw.setText("asdfg");     //SACAR PARA FUNCIONALIDAD DE LOGIN
 
         String Pass = new String(Passw.getPassword());
         Icon logoapp = new ImageIcon(getClass().getResource("/imagenes/logo.png"));//VARIABLE PARA CAPTURAR LOGO Y PASAR 
@@ -194,10 +194,11 @@ public class Login extends javax.swing.JFrame {
             dispose();//ACA CIERRA JFRAME LOGIN
             JOptionPane.showMessageDialog(null, "Bienvenido a CODE PLAY", "CODE PLAY",
             JOptionPane.INFORMATION_MESSAGE,logoapp);//ACA DAMOS LA BIENVENIDA Y ADEMAS MOSTRAMOS EL LOGO DE APP
-            Gestiones gt = new Gestiones();//COSNTRUCTOR PARA LLAMAR A JFRAME GESTIONES
+            Gestiones gt = new Gestiones();//PARA LLAMAR A JFRAME GESTIONES
             gt.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME 
         }else{
-            JOptionPane.showMessageDialog(this, "Usuario o Contraseña es incorrecta");
+            JOptionPane.showMessageDialog(null, "Usuario o Contraseña es incorrecta","CODE PLAY",
+            JOptionPane.ERROR_MESSAGE,null);//
             txtUsuario.setText("");//ACA SETEAMOS Y DEJAMOS VACIO EL CAMPO USUARIO
             Passw.setText("");//ACA SETEAMOS Y DEJAMOS VACIO EL CAMPO CONTRASEÑA
         }
