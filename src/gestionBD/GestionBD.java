@@ -94,7 +94,7 @@ public class GestionBD {
                 tablaProducto.setValueAt(resultados.getInt("RUT"), fila, 0);
                 tablaProducto.setValueAt(resultados.getString("NOMBRE"), fila, 1);
                 tablaProducto.setValueAt(resultados.getString("APELLIDOPAT"), fila, 2);
-                tablaProducto.setValueAt(resultados.getString("CORREOELC"), fila, 3);
+                tablaProducto.setValueAt(resultados.getString("CORREOELC"), fila, 4);
                 fila++;
                 
             }
