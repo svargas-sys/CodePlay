@@ -696,7 +696,7 @@
                                                   </Group>
                                                   <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                                   <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Component id="jTextField1" min="-2" pref="327" max="-2" attributes="0"/>
+                                                      <Component id="jTextFieldBuscar" min="-2" pref="327" max="-2" attributes="0"/>
                                                       <Component id="txtCelectronico" min="-2" pref="327" max="-2" attributes="0"/>
                                                       <Group type="102" attributes="0">
                                                           <Component id="jRadioButton1" min="-2" max="-2" attributes="0"/>
@@ -769,7 +769,7 @@
                                   <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
                                       <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jTextField1" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
+                                      <Component id="jTextFieldBuscar" alignment="3" min="-2" pref="29" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                               </Group>
@@ -918,7 +918,10 @@
                     <Property name="text" type="java.lang.String" value="BUSCAR"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JTextField" name="jTextField1">
+                <Component class="javax.swing.JTextField" name="jTextFieldBuscar">
+                  <Events>
+                    <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextFieldBuscarKeyTyped"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel30">
                   <Properties>
@@ -944,6 +947,10 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="ELIMINAR"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEliminarMouseClicked"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnEliminarActionPerformed"/>
+                  </Events>
                 </Component>
               </SubComponents>
             </Container>

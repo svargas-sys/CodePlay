@@ -5,6 +5,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
+
 public class GestionBD {
     
     Connection conexion = null;
@@ -13,6 +14,7 @@ public class GestionBD {
     String DRIVER = "org.sqlite.JDBC";
     String NOMBREBD = "CodePlay.sqlite";
     String URL = "jdbc:sqlite:"+NOMBREBD;
+  
     
     public void crearBD(){
         
@@ -108,9 +110,28 @@ public class GestionBD {
         
     }  
         
-    }//FIN METODO    
-    
+    }//FIN METODO
 
-
-    
+    public void Eliminar(int Rut){
+        
+        try{
+            Class.forName(DRIVER);
+            conexion = DriverManager.getConnection(URL);
+            sentencia = conexion.createStatement();
+            String SQL = "DELETE FROM CLIENTES WHERE Rut="+Rut+"";
+            sentencia.executeUpdate(SQL);
+            JOptionPane.showMessageDialog(null, "CLIENTE ELIMINADO!!", 
+                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
+            sentencia.close();
+            conexion.close();
+        
+    }catch(ClassNotFoundException | SQLException e){
+        
+        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
+        
+    }   
+        
+    }    //fin metodo
+       
+   
 }

@@ -96,7 +96,7 @@ public class CodePlay extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaProducto = new javax.swing.JTable();
         btnBuscar = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldBuscar = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
@@ -583,6 +583,12 @@ public class CodePlay extends javax.swing.JFrame {
 
         btnBuscar.setText("BUSCAR");
 
+        jTextFieldBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldBuscarKeyTyped(evt);
+            }
+        });
+
         jLabel30.setText("Genero :");
 
         jRadioButton1.setText("Femenino");
@@ -592,6 +598,16 @@ public class CodePlay extends javax.swing.JFrame {
         btnModificar.setText("MODIFICAR");
 
         btnEliminar.setText("ELIMINAR");
+        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnEliminarMouseClicked(evt);
+            }
+        });
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -626,7 +642,7 @@ public class CodePlay extends javax.swing.JFrame {
                                             .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addGap(10, 10, 10)
                                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtCelectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel8Layout.createSequentialGroup()
                                                 .addComponent(jRadioButton1)
@@ -679,7 +695,7 @@ public class CodePlay extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBuscar)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
@@ -854,6 +870,24 @@ public class CodePlay extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnHome3ActionPerformed
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+//        int Rut = Integer.parseInt(txtRut.getText());
+//        gbd.Eliminar(Rut);
+//        txtRut.setText("");
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void jTextFieldBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldBuscarKeyTyped
+
+    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
+        int Rut = Integer.parseInt(txtRut.getText());
+        gbd.Eliminar(Rut);
+        txtRut.setText("");
+        tablaProducto.setToolTipText("");
+        
+    }//GEN-LAST:event_btnEliminarMouseClicked
+
     
     
     /**
@@ -958,7 +992,7 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldBuscar;
     private javax.swing.JTable tablaProducto;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCelectronico;
