@@ -871,9 +871,10 @@ public class CodePlay extends javax.swing.JFrame {
     }//GEN-LAST:event_btnHome3ActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-//        int Rut = Integer.parseInt(txtRut.getText());
-//        gbd.Eliminar(Rut);
-//        txtRut.setText("");
+        int Rut = Integer.parseInt(txtRut.getText());
+        gbd.Eliminar(Rut);
+        txtRut.setText("");
+        
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void jTextFieldBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarKeyTyped
@@ -881,10 +882,7 @@ public class CodePlay extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextFieldBuscarKeyTyped
 
     private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
-        int Rut = Integer.parseInt(txtRut.getText());
-        gbd.Eliminar(Rut);
-        txtRut.setText("");
-        tablaProducto.setToolTipText("");
+
         
     }//GEN-LAST:event_btnEliminarMouseClicked
 
