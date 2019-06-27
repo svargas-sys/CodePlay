@@ -146,7 +146,7 @@ public class Gestiones extends javax.swing.JFrame {
     }//GEN-LAST:event_btnQuienesSomosActionPerformed
 
     private void btnGestionBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionBDActionPerformed
-            DatosBD gb = new DatosBD();//LLAMAR A JFRAME GESTIONES
+            GestionBD gb = new GestionBD();//LLAMAR A JFRAME GESTIONES
             gb.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
             dispose();
     }//GEN-LAST:event_btnGestionBDActionPerformed

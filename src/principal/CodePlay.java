@@ -1,6 +1,7 @@
 
 package principal;
 import gestionBD.GestionBD;
+import java.util.Calendar;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 /**
@@ -10,7 +11,9 @@ import javax.swing.table.DefaultTableModel;
 public class CodePlay extends javax.swing.JFrame {
 
     GestionBD gbd;
-    
+    int total=0, mPago=0, folio;
+    /*  */ int idpr=0,  idpr2=0, idpr3=0, idpr4=0, idpr5=0, idpr6=0, idpr7=0, idpr8=0, idpr9=0, idpr10=0, idpr11=0, idpr12=0;//  tomaran el id del producto seleccionado para insertarlo en la tabla venta cuando se concrete la compra
+           String salida, fecha;
     public CodePlay() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -20,10 +23,11 @@ public class CodePlay extends javax.swing.JFrame {
         gbd = new GestionBD();
         txtSeleccionado.setLineWrap(true);//COMANDO PARA SALTO DE LINEA EN JTEXTAREA
         txtSeleccionado.setWrapStyleWord(true);//COMANDO PARA NO CORTAR LAS PALABRAS CON SALTO DE LINEA EN JTEXTAREA
+        configurarRB();
         
     }
     
-    public void eliminar(){
+        public void eliminar(){
         DefaultTableModel tb = (DefaultTableModel) tablaProducto.getModel();
         int a = tablaProducto.getRowCount()-1;
         for (int i = a; i >= 0; i--) {           
@@ -32,8 +36,24 @@ public class CodePlay extends javax.swing.JFrame {
         tb.setRowCount(100);
         //cargaTicket();
     }
-
-
+    
+    /**/private void configurarRB(){
+        
+      /**/  ButtonGroup so = new ButtonGroup();
+        /**/so.add(RbtnEfectivo);
+        /**/so.add(RbtnTarjeta);
+       
+        
+    }
+    public void eliminarDettalleBoleta(){
+        DefaultTableModel tb = (DefaultTableModel) tabDetalle.getModel();
+        int a = tabDetalle.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {           
+        tb.removeRow(tb.getRowCount()-1);
+        }
+        tb.setRowCount(12);
+        //cargaTicket();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -108,13 +128,29 @@ public class CodePlay extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaProducto = new javax.swing.JTable();
         btnBuscar = new javax.swing.JButton();
-        jTextFieldBuscar = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        txArticulos = new javax.swing.JTextArea();
+        jLabel31 = new javax.swing.JLabel();
+        txtTotalPagar = new javax.swing.JTextField();
+        txtRutIng = new javax.swing.JTextField();
+        txtVuelto = new javax.swing.JTextField();
+        txtMontoIng = new javax.swing.JTextField();
+        btnAcepCompra = new javax.swing.JButton();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabTotal = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabDetalle = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -230,6 +266,11 @@ public class CodePlay extends javax.swing.JFrame {
         RbtnTarjeta.setText("TARJETA DE CREDITO");
 
         btnConfirmar.setText("CONFIRMAR");
+        btnConfirmar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnConfirmarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -595,12 +636,6 @@ public class CodePlay extends javax.swing.JFrame {
 
         btnBuscar.setText("BUSCAR");
 
-        jTextFieldBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTextFieldBuscarKeyTyped(evt);
-            }
-        });
-
         jLabel30.setText("Genero :");
 
         jRadioButton1.setText("Femenino");
@@ -610,11 +645,6 @@ public class CodePlay extends javax.swing.JFrame {
         btnModificar.setText("MODIFICAR");
 
         btnEliminar.setText("ELIMINAR");
-        btnEliminar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnEliminarMouseClicked(evt);
-            }
-        });
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -654,7 +684,7 @@ public class CodePlay extends javax.swing.JFrame {
                                             .addComponent(btnBuscar, javax.swing.GroupLayout.Alignment.TRAILING))
                                         .addGap(10, 10, 10)
                                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtCelectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel8Layout.createSequentialGroup()
                                                 .addComponent(jRadioButton1)
@@ -707,7 +737,7 @@ public class CodePlay extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnBuscar)
-                            .addComponent(jTextFieldBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(31, 31, 31)
@@ -726,15 +756,123 @@ public class CodePlay extends javax.swing.JFrame {
         jPanel9.setBackground(new java.awt.Color(102, 255, 102));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de Compra"));
 
+        txArticulos.setColumns(20);
+        txArticulos.setRows(5);
+        jScrollPane3.setViewportView(txArticulos);
+
+        jLabel31.setText("Articulos seleccionados:");
+
+        btnAcepCompra.setText("Aceptar");
+        btnAcepCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAcepCompraActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setText("Rut Cliente:");
+
+        jLabel33.setText("monto ingresado:");
+
+        jLabel34.setText("Vuelto:");
+
+        jLabel35.setText("Total a pagar:");
+
+        tabTotal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "folio", "fecha_venta", "rut_cliente", "cantidad de articulos", "total"
+            }
+        ));
+        jScrollPane4.setViewportView(tabTotal);
+
+        tabDetalle.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
+            },
+            new String [] {
+                "id_producto", "nombre_producto", "precio unitario"
+            }
+        ));
+        jScrollPane5.setViewportView(tabDetalle);
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 731, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(btnAcepCompra)
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtRutIng)
+                                    .addComponent(txtMontoIng, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)))
+                            .addComponent(jLabel32)
+                            .addComponent(jLabel33))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel31)
+                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                                .addComponent(jLabel34)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtVuelto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(87, 87, 87)
+                                .addComponent(jLabel35)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(0, 9, Short.MAX_VALUE)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(19, 19, 19))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel31)
+                        .addGap(8, 8, 8)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addGap(13, 13, 13)
+                        .addComponent(jLabel32)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtRutIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel33)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtMontoIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtVuelto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAcepCompra)
+                    .addComponent(jLabel34)
+                    .addComponent(jLabel35))
+                .addGap(76, 76, 76)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(68, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Gestion Compra (BOLETA)", jPanel9);
@@ -784,70 +922,107 @@ public class CodePlay extends javax.swing.JFrame {
         cbUncharted.setSelected(false);
         cb3meses.setSelected(false);
         cb12meses.setSelected(false);
+        total =0;
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnMostrarJuegosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarJuegosActionPerformed
-
-        String salida = ""; //variable contador
-        int total =0;
+        
+        
+                
+         salida = ""; //variable contador
+        total =0;
          String nl = System.getProperty("line.separator");//SE DECLARA COMO NL STRING PARA USARLO COMO SALTO
                                                          //DE LIENA EN MENSAJE JOPTIONPANE
                                                          
-        if(cbFarcry.isSelected()){
-        salida = salida + "Farcry 4 $16.990" + nl;
-        total = total + 16990;
-
-        }if(cbFifa19.isSelected()){
+        if(cbFarcry.isSelected())
+        { salida = salida + "Farcry 4 $16.990" + nl;
+         /**/idpr=1;
+         total = total +16990;
+             }
+        else{
+            idpr=0;}
+        
+        if(cbFifa19.isSelected()){
         salida = salida + "Fifa 19 $29.990" + nl;
-        total = total + 29990;
-
-        }if(cbBattlefield.isSelected()){
+         /**/idpr2=2;
+       total = total +29990;}
+        else{
+            idpr2=0;}
+        
+        if(cbBattlefield.isSelected()){
         salida = salida + "Battlefield $19.990" + nl;
-        total = total + 19990;
-
-        }if(cbGodofwar.isSelected()){
+        /**/idpr3=3;
+        total = total +19990;}
+        else{
+            idpr3=0;}
+        if(cbGodofwar.isSelected()){
+        
         salida = salida + "God of War $19.990" + nl;
-        total = total + 19990;
-
-        }if(cbGta.isSelected()){
-        salida = salida + "GTA V $18.990" + nl;
-        total = total + 18990;
-
-        }if(cbHorizon.isSelected()){
+        /**/idpr4=4;
+        total = total +19990;}
+        else{
+            idpr4=0;}
+        
+        if(cbGta.isSelected()){
+        /**/salida = salida + "GTA V $18.990" + nl;
+        idpr5=5;
+        total = total +18990;}
+        else{
+            idpr5=0;}
+        
+        if(cbHorizon.isSelected()){
         salida = salida + "Horizon Zero $19.990" + nl;
-        total = total + 16990;
-
-        }if(cbLastofUs.isSelected()){
+        /**/idpr6=6;
+        total = total +19990;}
+        else{
+            idpr6=0;}
+        
+        if(cbLastofUs.isSelected()){
         salida = salida + "The Last of US $19.990" + nl;
-        total = total + 19990;
-
-        }if(cbResident.isSelected()){
+        /**/idpr7=7;
+        total = total +19990;}
+        else{
+            idpr7=0;}
+        
+        if(cbResident.isSelected()){
         salida = salida + "Resident Evil 4 $19.990" + nl;
-        total = total + 19990;
-
-        }if(cbSpiderman.isSelected()){
+        /**/idpr8=8;
+        total = total +19990;}
+        else{
+            idpr8=0;}
+        
+        if(cbSpiderman.isSelected()){
         salida = salida + "Spiderman $18.990" + nl;
-        total = total + 18990;
-
-        }if(cbUncharted.isSelected()){
+        /**/idpr9=9;
+        total = total +18990;}
+        else{
+            idpr9=0;}
+        
+        if(cbUncharted.isSelected()){
         salida = salida + "Uncharted 4 $19.990" + nl;
-        total = total + 19990;
-
-        }if(cb3meses.isSelected()){
+        /**/idpr10=10;
+        total = total +19990;}
+        else{
+            idpr10=0;}
+        
+        if(cb3meses.isSelected()){
         salida = salida + "Membresia de 3 Meses $17.990" + nl;
-        total = total + 17990;
-
-        }if(cb12meses.isSelected()){
+        /**/idpr11=11;
+        total = total +17990;}else{
+            idpr11=0;}
+        
+        if(cb12meses.isSelected()){
         salida = salida + "Membresia de 12 Meses $39.990" + nl;
-        total = total + 39990;}
+        /**/idpr12=12;
+        total = total +39990;}
+        else{
+            idpr12=0;}
         
         TextFiTotal.setText(Integer.toString(total));
         txtSeleccionado.setText(salida);
-
-        JOptionPane.showMessageDialog(null, "Luego de verificar Productos seleccionados, "
-                                     + nl + "Para continuar con venta debe completar "
-                                     + nl + "datos en pestaña Clientes!!","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
+        
+        
 
     }//GEN-LAST:event_btnMostrarJuegosActionPerformed
 
@@ -858,7 +1033,6 @@ public class CodePlay extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         eliminar();
         gbd.VerDatos(tablaProducto);
-        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -883,21 +1057,100 @@ public class CodePlay extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnHome3ActionPerformed
 
+    private void btnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmarActionPerformed
+       if(RbtnEfectivo.isSelected()){
+        
+        /**/mPago=1;//validara que el monto pagado por la compra en efectivo, puedaa entregar vuelto
+
+       }
+        else if(RbtnTarjeta.isSelected()){
+                
+            txtMontoIng.setText(Integer.toString(total));
+            mPago=2;// vaidara que si la compra se efectua con tarjeta el monto debera ser equivalente al total a pagar, ya que si se paga con un monto mator no podra otorgar vuelto
+            
+           }
+        
+        if(total==0){
+            JOptionPane.showMessageDialog(null, "no puede concretarse la seleccion de articulos \n "
+                                      + "si no ah seleccionado alguno(s) \n"
+                                      + "favor de seleccionar productos","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
+        }else if(mPago==0){
+        JOptionPane.showMessageDialog(null, "no puede concretarse la seleccion de articulos \n "
+                                      + "si no ah seleccionado alguno(s) \n"
+                                      + "favor de seleccionar productos","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
+        }else{
+            
+            
+            
+        JOptionPane.showMessageDialog(null, "Luego de verificar Productos seleccionados, \n "
+                                      + "Para continuar con venta debe completar \n"
+                                      + "datos en pestaña Clientes!!","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null); 
+        /**/Calendar c;
+        /**/c=Calendar.getInstance();
+        /**/int d=c.get(Calendar.DATE) ,m=c.get(Calendar.MONTH)+1, a=c.get(Calendar.YEAR) ,hr=c.get(Calendar.HOUR), min=c.get(Calendar.MINUTE), sec=(Calendar.SECOND);
+        txtSeleccionado.setText(salida);
+        /**/txArticulos.setText(salida+"\n en fecha "+a+"-"+m+"-"+d);
+        /**/ fecha= a+"-"+m+"-"+d;//guardara el año mes y dia para insertarla en la tabla ventas
+         /**/folio = ((hr+min)*10)+sec; // sera el numero de folio para la venta 
+       /**/ txtTotalPagar.setText(total+" $");}
+        txtVuelto.setText(" ");
+        eliminarDettalleBoleta();// TODO add your handling code here:
+    }//GEN-LAST:event_btnConfirmarActionPerformed
+
+    private void btnAcepCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcepCompraActionPerformed
+        String rutBd=txtRutIng.getText();
+                    int pagado = Integer.parseInt(txtMontoIng.getText());
+                    
+                    if(pagado>=total){ 
+                        int vuelto=pagado-total;
+                        txtVuelto.setText(vuelto+"$");
+                    if(idpr==1){
+                       gbd.insertarVenta(folio, rutBd , idpr, fecha);
+                    } 
+                     if(idpr2==2){
+                       gbd.insertarVenta(folio, rutBd , idpr2, fecha);
+                    }
+                     if(idpr3==3){
+                       gbd.insertarVenta(folio, rutBd , idpr3, fecha);
+                    }
+                     if(idpr4==4){
+                       gbd.insertarVenta(folio, rutBd , idpr4, fecha);
+                    }
+                     if(idpr5==5){
+                       gbd.insertarVenta(folio, rutBd , idpr5, fecha);
+                    }
+                     if(idpr6==6){
+                       gbd.insertarVenta(folio, rutBd , idpr6, fecha);
+                    }
+                     if(idpr7==7){
+                       gbd.insertarVenta(folio, rutBd , idpr7, fecha);
+                    }
+                     if(idpr8==8){
+                       gbd.insertarVenta(folio, rutBd , idpr8, fecha);
+                    }
+                     if(idpr9==(9)){
+                       gbd.insertarVenta(folio, rutBd , idpr9, fecha);
+                    }
+                     if(idpr10==10){
+                       gbd.insertarVenta(folio, rutBd , idpr10, fecha);
+                    }
+                     if(idpr11==11){
+                       gbd.insertarVenta(folio, rutBd , idpr11, fecha);
+                    }
+                     if(idpr12==12){
+                       gbd.insertarVenta(folio, rutBd , idpr12, fecha);
+                    }
+                     gbd.DettalleBoleta(tabDetalle, folio);
+                     gbd.Total(tabTotal, folio);
+                     total=0;
+                     }// TODO add your handling code here:
+    }//GEN-LAST:event_btnAcepCompraActionPerformed
+
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         int Rut = Integer.parseInt(txtRut.getText());
         gbd.Eliminar(Rut);
         txtRut.setText("");
-        
     }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void jTextFieldBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldBuscarKeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldBuscarKeyTyped
-
-    private void btnEliminarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEliminarMouseClicked
-
-        
-    }//GEN-LAST:event_btnEliminarMouseClicked
 
     
     
@@ -941,6 +1194,7 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JRadioButton RbtnEfectivo;
     private javax.swing.JRadioButton RbtnTarjeta;
     private javax.swing.JTextField TextFiTotal;
+    private javax.swing.JButton btnAcepCompra;
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnEliminar;
@@ -986,6 +1240,11 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1002,13 +1261,23 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTextField jTextFieldBuscar;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable tabDetalle;
+    private javax.swing.JTable tabTotal;
     private javax.swing.JTable tablaProducto;
+    private javax.swing.JTextArea txArticulos;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCelectronico;
+    private javax.swing.JTextField txtMontoIng;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRut;
+    private javax.swing.JTextField txtRutIng;
     private javax.swing.JTextArea txtSeleccionado;
+    private javax.swing.JTextField txtTotalPagar;
+    private javax.swing.JTextField txtVuelto;
     // End of variables declaration//GEN-END:variables
 }
