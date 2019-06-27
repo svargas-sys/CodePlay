@@ -23,15 +23,15 @@ public class CodePlay extends javax.swing.JFrame {
         
     }
     
-//    public void eliminar(){
-//        DefaultTableModel tb = (DefaultTableModel) tablaProducto.getModel();
-//        int a = tablaProducto.getRowCount()-1;
-//        for (int i = a; i >= 0; i--) {           
-//        tb.removeRow(tb.getRowCount()-1);
-//        }
-//        tb.setRowCount(100);
-//        //cargaTicket();
-//    }
+    public void eliminar(){
+        DefaultTableModel tb = (DefaultTableModel) tablaProducto.getModel();
+        int a = tablaProducto.getRowCount()-1;
+        for (int i = a; i >= 0; i--) {           
+        tb.removeRow(tb.getRowCount()-1);
+        }
+        tb.setRowCount(100);
+        //cargaTicket();
+    }
 
 
     /**
@@ -856,7 +856,7 @@ public class CodePlay extends javax.swing.JFrame {
     }//GEN-LAST:event_cbFifa19ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        eliminar();
+        eliminar();
         gbd.VerDatos(tablaProducto);
         
 
