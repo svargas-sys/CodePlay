@@ -2,6 +2,7 @@
 package principal;
 import gestionBD.GestionBD;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 /**
  *
  * @author Sergio Vargas
@@ -21,6 +22,17 @@ public class CodePlay extends javax.swing.JFrame {
         txtSeleccionado.setWrapStyleWord(true);//COMANDO PARA NO CORTAR LAS PALABRAS CON SALTO DE LINEA EN JTEXTAREA
         
     }
+    
+//    public void eliminar(){
+//        DefaultTableModel tb = (DefaultTableModel) tablaProducto.getModel();
+//        int a = tablaProducto.getRowCount()-1;
+//        for (int i = a; i >= 0; i--) {           
+//        tb.removeRow(tb.getRowCount()-1);
+//        }
+//        tb.setRowCount(100);
+//        //cargaTicket();
+//    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -844,8 +856,9 @@ public class CodePlay extends javax.swing.JFrame {
     }//GEN-LAST:event_cbFifa19ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
+//        eliminar();
         gbd.VerDatos(tablaProducto);
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
