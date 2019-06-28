@@ -5,6 +5,7 @@
  */
 package principal;
 import gestionBD.GestionBD;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 /**
  *
@@ -17,6 +18,9 @@ public class Actualizar extends javax.swing.JFrame {
         initComponents();
        gbd = new GestionBD();
         setLocationRelativeTo(null);
+        setResizable(false);   //PARA QUE NO SE MAXIMIZE LA PANTALLA
+        setTitle("CODE PLAY"); //TITULO DE VENTANA
+        setIconImage(new ImageIcon(getClass().getResource("/imagenes/logo.png")).getImage());//ACA SE CAMBIA IMAGEN DE VENTANA
     }
 
     /**
@@ -50,7 +54,9 @@ public class Actualizar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Modificar Clientes"));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Modificar Clientes", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingrese el Rut a modificar"));
 
@@ -273,8 +279,9 @@ public class Actualizar extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        CodePlay ventana  = new CodePlay();
-        ventana.setVisible(true);
+//        CodePlay ventana  = new CodePlay();
+//        ventana.setVisible(true);
+          dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void txtNewApellidosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNewApellidosActionPerformed

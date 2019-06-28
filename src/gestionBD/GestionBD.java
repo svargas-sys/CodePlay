@@ -429,7 +429,7 @@ public  class GestionBD {
             
             sentencia = conexion.createStatement();
             String SQL;
-            SQL = "DROP TABLE CLIENTES ";
+            SQL = "DROP TABLE VENTA ";
                     
             sentencia.executeUpdate(SQL);
             JOptionPane.showMessageDialog(null,"Tabla ELIMINADA!!","EXITO!",JOptionPane.INFORMATION_MESSAGE );
@@ -449,13 +449,13 @@ public  class GestionBD {
     }
 
 
-
+}
     
     
-    public static void main(String[] args) {
-        GestionBD gbd= new GestionBD();
-        gbd.crearTabla();
-    }
-     
-
-   }
+//    public static void main(String[] args) {
+//        GestionBD gbd= new GestionBD();
+//        gbd.crearTablaVenta();
+//    }
+//     
+//
+//   }
