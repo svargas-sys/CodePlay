@@ -24,7 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Sergio Vargas
  */
-
+//Clase principal de la interfaz
 public class CodePlay extends javax.swing.JFrame {
 
     GestionBD gbd;
