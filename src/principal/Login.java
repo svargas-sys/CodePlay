@@ -174,7 +174,7 @@ public class Login extends javax.swing.JFrame {
         String ContraseñaSV = "asdfg";     //ACA DEFINIMOS LA CONTRASEÑA
         
         String UsuarioJM = "Jmuñoz";      //ACA DEFINIMOS EL USUARIO
-        String ContraseñaJM = "asdfg";    //ACA DEFINIMOS LA CONTRASEÑA
+        String ContraseñaJM = "123456abc";    //ACA DEFINIMOS LA CONTRASEÑA //YA CONFIRME MI CLAVE SALUDOS!!
         
         String UsuarioJL = "Jlobos";      //ACA DEFINIMOS EL USUARIO
         String ContraseñaJL = "asdfg";    //ACA DEFINIMOS LA CONTRASEÑA

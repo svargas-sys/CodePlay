@@ -84,6 +84,7 @@ public class CodePlay extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupo2 = new javax.swing.ButtonGroup();
         jPanel6 = new javax.swing.JPanel();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel7 = new javax.swing.JPanel();
@@ -151,8 +152,8 @@ public class CodePlay extends javax.swing.JFrame {
         btnBuscar = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        insertarFemenino = new javax.swing.JRadioButton();
+        insertarMasculino = new javax.swing.JRadioButton();
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
@@ -501,7 +502,7 @@ public class CodePlay extends javax.swing.JFrame {
                     .addComponent(btnLimpiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane2.addTab("Juegos", jPanel7);
@@ -658,14 +659,31 @@ public class CodePlay extends javax.swing.JFrame {
         );
 
         btnBuscar.setText("BUSCAR");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         jLabel30.setText("Genero :");
 
-        jRadioButton1.setText("Femenino");
+        grupo2.add(insertarFemenino);
+        insertarFemenino.setText("Femenino");
+        insertarFemenino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertarFemeninoActionPerformed(evt);
+            }
+        });
 
-        jRadioButton2.setText("Masculino");
+        grupo2.add(insertarMasculino);
+        insertarMasculino.setText("Masculino");
 
         btnModificar.setText("MODIFICAR");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("ELIMINAR");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -710,9 +728,9 @@ public class CodePlay extends javax.swing.JFrame {
                                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(txtCelectronico, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addGroup(jPanel8Layout.createSequentialGroup()
-                                                .addComponent(jRadioButton1)
+                                                .addComponent(insertarFemenino)
                                                 .addGap(18, 18, 18)
-                                                .addComponent(jRadioButton2)))))
+                                                .addComponent(insertarMasculino)))))
                                 .addGap(23, 23, 23)
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnIngresar, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
@@ -750,8 +768,8 @@ public class CodePlay extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel30)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2))
+                            .addComponent(insertarFemenino)
+                            .addComponent(insertarMasculino))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtCelectronico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1085,13 +1103,26 @@ public class CodePlay extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnIngresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresarActionPerformed
-
+        String genero = " ";
+        if (insertarFemenino.isSelected()) {
+            genero="Femenino";                        
+        }if(insertarMasculino.isSelected()){
+            genero="Masculino";
+        }
+       
+        
         int Rut = Integer.parseInt(txtRut.getText());
         String nombre = txtNombre.getText();
         String apellidos = txtApellidos.getText();
         String correo = txtCelectronico.getText();
+         
+        if (!"".equals(genero)) {
+            
+            gbd.insertarClientes(Rut, nombre, apellidos, genero, correo);
+            
+        }
 
-        gbd.insertarClientes(Rut, nombre, apellidos, correo);
+        
         txtRut.setText("");
         txtNombre.setText("");
         txtApellidos.setText("");
@@ -1262,6 +1293,21 @@ public class CodePlay extends javax.swing.JFrame {
          // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelarCompraActionPerformed
 
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        
+             Actualizar ventana = new Actualizar();
+             ventana.setVisible(true);
+                
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void insertarFemeninoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertarFemeninoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_insertarFemeninoActionPerformed
+
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     
     
     /**
@@ -1327,6 +1373,9 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JCheckBox cbResident;
     private javax.swing.JCheckBox cbSpiderman;
     private javax.swing.JCheckBox cbUncharted;
+    private javax.swing.ButtonGroup grupo2;
+    private javax.swing.JRadioButton insertarFemenino;
+    private javax.swing.JRadioButton insertarMasculino;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1369,8 +1418,6 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

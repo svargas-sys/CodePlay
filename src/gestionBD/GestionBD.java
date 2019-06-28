@@ -5,14 +5,14 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
-public class GestionBD {
+public  class GestionBD {
     
-    Connection conexion = null;
-    Statement sentencia = null;
-    ResultSet resultados = null;
-    String DRIVER = "org.sqlite.JDBC";
-    String NOMBREBD = "CodePlay.sqlite";
-    String URL = "jdbc:sqlite:"+NOMBREBD;
+    static Connection conexion = null;
+    static Statement sentencia = null;
+    static ResultSet resultados = null;
+    static String DRIVER = "org.sqlite.JDBC";
+    static String NOMBREBD = "CodePlay.sqlite";
+    static String URL = "jdbc:sqlite:"+NOMBREBD;
     
     public void crearBD(){
         
@@ -29,7 +29,7 @@ public class GestionBD {
 }//fin metodo
     
     
-    public void crearTabla(){
+    public static void crearTabla(){
         
         try{
             Class.forName(DRIVER);
@@ -40,6 +40,7 @@ public class GestionBD {
                     "(RUT        TEXT      PRIMARY KEY NOT NULL, " +
                     "NOMBRE    TEXT     NOT NULL, " +
                     "APELLIDOPAT    TEXT     NOT NULL, " +
+                    "GENERO    TXT NOT NULL, "+
                     "CORREOELC    TEXT      NOT NULL)";
             sentencia.executeUpdate(SQL);
             JOptionPane.showMessageDialog(null, "TABLA CLIENTES CREADA!!", 
@@ -55,15 +56,19 @@ public class GestionBD {
         
     }    
     
-    public void insertarClientes(int Rut, String nombre, String apellidos, String correo){
+    public void insertarClientes(int Rut, String nombre, String apellidos,String genero, String correo){
         
         try{
+            
+            
+            
+            
             Class.forName(DRIVER);
             conexion = DriverManager.getConnection(URL);
             sentencia = conexion.createStatement();
             String SQL = "INSERT INTO CLIENTES " +
-                    "(RUT, NOMBRE, APELLIDOPAT, CORREOELC) VALUES " +
-                    "('"+Rut+"','"+nombre+"','"+apellidos+"','"+correo+"')";
+                    "(RUT, NOMBRE, APELLIDOPAT, GENERO, CORREOELC) VALUES " +
+                    "('"+Rut+"','"+nombre+"','"+apellidos+"','"+genero+"','"+correo+"')";
             sentencia.executeUpdate(SQL);
             JOptionPane.showMessageDialog(null, "CLIENTE INGRESADO!!", 
                     "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
@@ -94,6 +99,7 @@ public class GestionBD {
                 tablaProducto.setValueAt(resultados.getInt("RUT"), fila, 0);
                 tablaProducto.setValueAt(resultados.getString("NOMBRE"), fila, 1);
                 tablaProducto.setValueAt(resultados.getString("APELLIDOPAT"), fila, 2);
+                tablaProducto.setValueAt(resultados.getString("GENERO"), fila, 3);
                 tablaProducto.setValueAt(resultados.getString("CORREOELC"), fila, 4);
                 fila++;
                 
@@ -321,7 +327,65 @@ public class GestionBD {
         
     } //fin metodo
      
+         public static void UPDATE(int oldRut, int Rut, String nombre, String apellidos, String genero, String correo){
+         
+             
+        try{
+            Class.forName(DRIVER);
+            conexion = DriverManager.getConnection(URL);
+            sentencia = conexion.createStatement();
+            String SQL = " UPDATE  CLIENTES SET RUT= '"+Rut+"'"
+                    + ",NOMBRE= '"+nombre+"',APELLIDOPAT= '"+apellidos+"'"
+                    + ",GENERO= '"+genero+"' , CORREOELC= '"+correo+"' "
+                    + "WHERE  Rut="+oldRut+" ";
+                       
+                         
+                        
+            sentencia.executeUpdate(SQL);
+            JOptionPane.showMessageDialog(null, "CLIENTE ACTUALIZADO CORRECTAMENTE!!", 
+                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
+            sentencia.close();
+            conexion.close();
+        
+    }catch(ClassNotFoundException | SQLException e){
+        
+        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
+        
+    }   
+       
+    }
+         
+         public  static void dropTabla(){ //BORRAR TABLAS
+    
+        try{
+            Class.forName(DRIVER);
+            conexion = DriverManager.getConnection(URL);
+            
+            sentencia = conexion.createStatement();
+            String SQL;
+            SQL = "drop TABLE CLIENTES ";
+                    
+            sentencia.executeUpdate(SQL);
+            JOptionPane.showMessageDialog(null,"Tabla ELIMINADA!!","EXITO!",JOptionPane.INFORMATION_MESSAGE );
+            sentencia.close();
+            conexion.close();
+         
+
+    
+        }catch(Exception e){
+           
+            
+            
+        }
+         
+         
+         
+    }
+
+
+
 }
+
 
     
     
