@@ -1,3 +1,6 @@
+
+
+
 //CodePlay is licensed under the
 //
 //Apache License 2.0
@@ -47,7 +50,7 @@ public class CodePlay extends javax.swing.JFrame {
         tb.removeRow(tb.getRowCount()-1);
         }
         tb.setRowCount(100);
-        //cargaTicket();
+       //resetea la tabla clientes
     }
     
     /**/private void configurarRB(){
