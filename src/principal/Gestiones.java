@@ -37,7 +37,6 @@ public class Gestiones extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        btnGestionBD = new javax.swing.JButton();
         btnGestionVenta = new javax.swing.JButton();
         btnQuienesSomos = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
@@ -49,13 +48,6 @@ public class Gestiones extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "GESTIONES CODE PLAY", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(255, 255, 255))); // NOI18N
         jPanel1.setToolTipText("");
-
-        btnGestionBD.setText("GESTIÓN BD");
-        btnGestionBD.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionBDActionPerformed(evt);
-            }
-        });
 
         btnGestionVenta.setText("GESTIÓN VENTA");
         btnGestionVenta.addActionListener(new java.awt.event.ActionListener() {
@@ -95,9 +87,8 @@ public class Gestiones extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnQuienesSomos, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGestionVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnGestionBD, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnGestionVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(30, 30, 30)
                         .addComponent(jLabel1)))
                 .addGap(24, 24, 24))
@@ -107,14 +98,12 @@ public class Gestiones extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel1)
-                    .addComponent(btnGestionBD))
-                .addGap(27, 27, 27)
-                .addComponent(btnGestionVenta)
-                .addGap(32, 32, 32)
+                    .addComponent(btnGestionVenta))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(btnQuienesSomos)
-                .addGap(31, 31, 31)
+                .addGap(35, 35, 35)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addComponent(jLabel2)
                 .addGap(26, 26, 26))
         );
@@ -127,7 +116,9 @@ public class Gestiones extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -144,12 +135,6 @@ public class Gestiones extends javax.swing.JFrame {
             qs.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
             dispose();
     }//GEN-LAST:event_btnQuienesSomosActionPerformed
-
-    private void btnGestionBDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionBDActionPerformed
-            GestionBD gb = new GestionBD();//LLAMAR A JFRAME GESTIONES
-            gb.setVisible(true);//ACA HACEMOS VISIBLE EL JFRAME
-            dispose();
-    }//GEN-LAST:event_btnGestionBDActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
             Login log = new Login();//LLAMAR A JFRAME GESTIONES
@@ -193,7 +178,6 @@ public class Gestiones extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnGestionBD;
     private javax.swing.JButton btnGestionVenta;
     private javax.swing.JButton btnQuienesSomos;
     private javax.swing.JButton jButton1;
