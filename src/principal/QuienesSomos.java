@@ -13,7 +13,7 @@
 //JOSE MUÑOZ
 
 package principal;
-
+//CREADORES DEL CODIGO
 import javax.swing.ImageIcon;
 
 /**
@@ -165,6 +165,7 @@ public class QuienesSomos extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    //CLASE MAIN
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
