@@ -188,7 +188,8 @@ public  class GestionBD {
             String SQL = "CREATE TABLE VENTA" +
                     "(FOLIO INT NOT NULL, " +
                     "RUTV    TEXT     NOT NULL, " +
-                    "IDPRV     INT     NOT NULL, "+
+                    "IDPRV     INT     NOT NULL, "
+                    + "MEDIOPAGO   TEXT NOT NULL,"+
                     "FECVN  DATE     NOT NULL, "+
                     " FOREIGN KEY(RUTV) REFERENCES CLIENTES(RUT), "+
                     " FOREIGN KEY(IDPRV) REFERENCES PRODUCTO(IDPR))";
@@ -203,20 +204,21 @@ public  class GestionBD {
         
         JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
         
-    }        
+    }               
         
     } 
      
     
-    public void insertarVenta(int folio, String rut, int idproducto, String fecha){
+    public void insertarVenta(int folio, String rut, int idproducto, String mpago, String fecha){
+        
         
         try{
             Class.forName(DRIVER);
             conexion = DriverManager.getConnection(URL);
             sentencia = conexion.createStatement();
             String SQL = "INSERT INTO VENTA " +
-                    "(FOLIO, RUTV, IDPRV, FECVN) VALUES " +
-                    "('"+folio+"','"+rut+"','"+idproducto+"','"+fecha+"')";
+                    "(FOLIO, RUTV, IDPRV, MEDIOPAGO, FECVN) VALUES " +
+                    "('"+folio+"','"+rut+"','"+idproducto+"','"+mpago+"','"+fecha+"')";
             sentencia.executeUpdate(SQL);
             JOptionPane.showMessageDialog(null, "VENTA INGRESADA!!", 
                     "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
@@ -227,11 +229,12 @@ public  class GestionBD {
         
         JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
         
-    }   
+    }      
     }
     
     
     public void DettalleBoleta(JTable tablaProducto, int folio){ //CONSULTA A DOS TABLAS
+        //MOSTRARA EL DETALLE DE LA VENTA REALIZADA
         
         try{
             Class.forName(DRIVER);
@@ -266,12 +269,13 @@ public  class GestionBD {
         
     }
      public void Total(JTable tablaProducto, int folio){  //CONSULTA A 3 TABLAS
+         //MOSTRARA LA INFO GENERAL DE LAS VENTAS REALIZADAS 
         
         try{
             Class.forName(DRIVER);
             conexion = DriverManager.getConnection(URL);
             sentencia = conexion.createStatement();
-            String SQL = "SELECT FOLIO, FECVN, RUTV ,  COUNT( PRODUCTO.IDPR ), SUM(PRECIO) " +
+            String SQL = "SELECT FOLIO, FECVN, RUTV , MEDIOPAGO,  COUNT( PRODUCTO.IDPR ), SUM(PRECIO) " +
                 "FROM VENTA " +
                 "JOIN CLIENTES " +
                 "ON CLIENTES.RUT=VENTA.RUTV " +
@@ -287,8 +291,9 @@ public  class GestionBD {
                 tablaProducto.setValueAt(resultados.getInt("FOLIO"), fila, 0);
                 tablaProducto.setValueAt(resultados.getString("FECVN"), fila, 1);
                 tablaProducto.setValueAt(resultados.getString("RUTV"), fila, 2);
-                tablaProducto.setValueAt(resultados.getInt("COUNT( PRODUCTO.IDPR )"), fila, 3);
-                tablaProducto.setValueAt(resultados.getInt("SUM(PRECIO)"), fila, 4);
+                tablaProducto.setValueAt(resultados.getString("MEDIOPAGO"), fila, 3);
+                tablaProducto.setValueAt(resultados.getInt("COUNT( PRODUCTO.IDPR )"), fila, 4);
+                tablaProducto.setValueAt(resultados.getInt("SUM(PRECIO)"), fila, 5);
                
                 fila++;
                 
@@ -302,9 +307,70 @@ public  class GestionBD {
         JOptionPane.showMessageDialog(null, "Error: total " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
         
     }//FIN METODO 
-        
-
      }
+       
+     public void totalVentas(JTable tabla){ // COMO DICE SU NOMBRE MOSTRARA LAS VENTAS REALIZADAS
+        
+        try{
+            Class.forName(DRIVER);
+            conexion = DriverManager.getConnection(URL);
+            sentencia = conexion.createStatement();
+            String SQL = "SELECT FOLIO, FECVN, RUTV , MEDIOPAGO,  COUNT( PRODUCTO.IDPR ), SUM(PRECIO) " +
+                "FROM VENTA " +
+                "JOIN CLIENTES " +
+                "ON CLIENTES.RUT=VENTA.RUTV " +
+                "JOIN PRODUCTO " +
+                "ON PRODUCTO.IDPR=VENTA.IDPRV " +
+                "GROUP by  FOLIO, FECVN ";
+            resultados = sentencia.executeQuery(SQL);
+            
+            int fila = 0;
+            while(resultados.next()){
+                
+                tabla.setValueAt(resultados.getInt("FOLIO"), fila, 0);
+                tabla.setValueAt(resultados.getString("FECVN"), fila, 1);
+                tabla.setValueAt(resultados.getString("RUTV"), fila, 2);
+                tabla.setValueAt(resultados.getString("MEDIOPAGO"), fila, 3);
+                tabla.setValueAt(resultados.getInt("COUNT( PRODUCTO.IDPR )"), fila, 4);
+                tabla.setValueAt(resultados.getInt("SUM(PRECIO)"), fila, 5);
+               
+                fila++;
+                
+            }
+            resultados.close();
+            sentencia.close();
+            conexion.close();
+        
+    }catch(ClassNotFoundException | SQLException e){
+        
+        JOptionPane.showMessageDialog(null, "Error: total " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
+        
+    }}
+      
+     
+     public void eliminarVenta( int nfolio){//ELIMINA LA VENTA SEGUN FOLIO SELECCIONADO
+        
+        try{
+            Class.forName(DRIVER);
+            conexion = DriverManager.getConnection(URL);
+            
+            sentencia = conexion.createStatement();
+            String SQL = "DELETE FROM VENTA WHERE (FOLIO='"+nfolio+"') ";
+                 
+            sentencia.executeUpdate(SQL);
+            JOptionPane.showMessageDialog(null, " VENTA ELIMINADA!!", 
+                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
+            sentencia.close();
+            conexion.close();
+        
+    }catch(ClassNotFoundException | SQLException e){
+        
+        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
+        
+    }        
+        
+    }
+     
 
          public void Eliminar(int Rut){
         
@@ -363,7 +429,7 @@ public  class GestionBD {
             
             sentencia = conexion.createStatement();
             String SQL;
-            SQL = "drop TABLE CLIENTES ";
+            SQL = "DROP TABLE CLIENTES ";
                     
             sentencia.executeUpdate(SQL);
             JOptionPane.showMessageDialog(null,"Tabla ELIMINADA!!","EXITO!",JOptionPane.INFORMATION_MESSAGE );
@@ -384,16 +450,12 @@ public  class GestionBD {
 
 
 
-}
-
-
     
     
-
+    public static void main(String[] args) {
+        GestionBD gbd= new GestionBD();
+        gbd.crearTabla();
+    }
      
 
-//   public static void main(String[] args) {
-//        GestionBD gbd= new GestionBD();
-//        gbd.crearTablaVenta();
-//        System.out.println("o");
-//    }}
+   }
