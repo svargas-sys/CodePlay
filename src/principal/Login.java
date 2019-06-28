@@ -189,8 +189,8 @@ public class Login extends javax.swing.JFrame {
         String ContraseñaJL = "asdfg";    //ACA DEFINIMOS LA CONTRASEÑA
         
         
-        txtUsuario.setText("Svargas");//SACAR PARA FUNCIONALIDAD DE LOGIN
-        Passw.setText("asdfg");     //SACAR PARA FUNCIONALIDAD DE LOGIN
+//        txtUsuario.setText("Svargas");//SACAR PARA FUNCIONALIDAD DE LOGIN
+//        Passw.setText("asdfg");     //SACAR PARA FUNCIONALIDAD DE LOGIN
 
         String Pass = new String(Passw.getPassword());
         Icon logoapp = new ImageIcon(getClass().getResource("/imagenes/logo.png"));//VARIABLE PARA CAPTURAR LOGO Y PASAR 
