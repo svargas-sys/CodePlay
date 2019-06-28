@@ -79,7 +79,7 @@ public class GestionBD {
     }
     
     
-    public void VerDatos(JTable tablaProducto){
+    public void VerDatos(JTable tablaProducto){   //CONSULTA A UNA TABLA
         
         try{
             Class.forName(DRIVER);
@@ -225,7 +225,7 @@ public class GestionBD {
     }
     
     
-    public void DettalleBoleta(JTable tablaProducto, int folio){
+    public void DettalleBoleta(JTable tablaProducto, int folio){ //CONSULTA A DOS TABLAS
         
         try{
             Class.forName(DRIVER);
@@ -259,7 +259,7 @@ public class GestionBD {
     }  
         
     }
-     public void Total(JTable tablaProducto, int folio){
+     public void Total(JTable tablaProducto, int folio){  //CONSULTA A 3 TABLAS
         
         try{
             Class.forName(DRIVER);
