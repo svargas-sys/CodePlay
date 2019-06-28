@@ -13,7 +13,7 @@ public class CodePlay extends javax.swing.JFrame {
     GestionBD gbd;
     int total=0, mPago=1, folio=0;
     /*  */ int idpr=0,  idpr2=0, idpr3=0, idpr4=0, idpr5=0, idpr6=0, idpr7=0, idpr8=0, idpr9=0, idpr10=0, idpr11=0, idpr12=0;//  tomaran el id del producto seleccionado para insertarlo en la tabla venta cuando se concrete la compra
-           String salida, fecha;
+           String salida, fecha,mediopago;
     public CodePlay() {
         initComponents();
         this.setLocationRelativeTo(null);
@@ -53,24 +53,24 @@ public class CodePlay extends javax.swing.JFrame {
         }
         tb.setRowCount(12);
         //cargaTicket();
-        DefaultTableModel bt = (DefaultTableModel) tabTotal.getModel();
+        DefaultTableModel t = (DefaultTableModel) tabTotal.getModel();
         int b = tabTotal.getRowCount()-1;
         for (int i = b; i >= 0; i--) {           
-        bt.removeRow(bt.getRowCount()-1);
+        t.removeRow(t.getRowCount()-1);
         }
-        bt.setRowCount(1);
+        t.setRowCount(1);
 
     }
     
-    public void eliminarTotalBoleta(){
+   public void eliminarTotalVentas(){
         
         //cargaTicket();
-        DefaultTableModel bt = (DefaultTableModel) tabTotal.getModel();
-        int b = tabTotal.getRowCount()-1;
+        DefaultTableModel t = (DefaultTableModel) tabTotalVenta.getModel();
+        int b = tabTotalVenta.getRowCount()-1;
         for (int i = b; i >= 0; i--) {           
-        bt.removeRow(bt.getRowCount()-1);
+        t.removeRow(t.getRowCount()-1);
         }
-        bt.setRowCount(1);
+        t.setRowCount(50);
 
     }
     
@@ -175,6 +175,14 @@ public class CodePlay extends javax.swing.JFrame {
         tabDetalle = new javax.swing.JTable();
         btnLimpiaGC = new javax.swing.JButton();
         btnCancelarCompra = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tabTotalVenta = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel37 = new javax.swing.JLabel();
+        txtFolioIng = new javax.swing.JTextField();
+        btnEliminarVenta = new javax.swing.JButton();
+        btnVerVentas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -820,10 +828,10 @@ public class CodePlay extends javax.swing.JFrame {
 
         tabTotal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null}
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "folio", "fecha_venta", "rut_cliente", "cantidad de articulos", "total"
+                "folio", "fecha_venta", "rut_cliente", "m. de pago", "N° de articulos", "total"
             }
         ));
         jScrollPane4.setViewportView(tabTotal);
@@ -940,6 +948,146 @@ public class CodePlay extends javax.swing.JFrame {
 
         jTabbedPane2.addTab("Gestion Compra (BOLETA)", jPanel9);
 
+        jPanel4.setBackground(new java.awt.Color(102, 255, 102));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("gestion de venta"));
+
+        tabTotalVenta.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "folio", "fecha_venta", "rut_comprador", "medio_de_pago", "N° de articulos", "total pagado"
+            }
+        ));
+        jScrollPane6.setViewportView(tabTotalVenta);
+
+        jPanel5.setBackground(new java.awt.Color(0, 153, 51));
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("deshacer venta"));
+
+        jLabel37.setText("n° de Folio:");
+
+        txtFolioIng.setText("0");
+
+        btnEliminarVenta.setText("deshacer");
+        btnEliminarVenta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarVentaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel37)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtFolioIng, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(36, 36, 36)
+                .addComponent(btnEliminarVenta)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel37)
+                    .addComponent(txtFolioIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminarVenta))
+                .addContainerGap(54, Short.MAX_VALUE))
+        );
+
+        btnVerVentas.setText("visualizar ventas actuales");
+        btnVerVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVerVentasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19))
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVerVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(117, 117, 117))))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(67, Short.MAX_VALUE)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                        .addComponent(btnVerVentas)
+                        .addGap(90, 90, 90)))
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(44, 44, 44))
+        );
+
+        jTabbedPane2.addTab("Gestion venta", jPanel4);
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -1044,21 +1192,21 @@ public class CodePlay extends javax.swing.JFrame {
         else{
             idpr6=0;}
         
-        if(cbLastofUs.isSelected()){
+        if(cbResident.isSelected()){
         salida = salida + "Resident Evil 4 $19.990" + nl;
         /**/idpr7=7;
         total = total +19990;}
         else{
             idpr7=0;}
         
-        if(cbResident.isSelected()){
+        if( cbSpiderman.isSelected()){
         salida = salida + "Spiderman $18.990" + nl;
         /**/idpr8=8;
         total = total +19990;}
         else{
             idpr8=0;}
         
-        if(cbSpiderman.isSelected()){
+        if(cbLastofUs.isSelected()){
         salida = salida + "The Last of US $19.990" + nl;
         /**/idpr9=9;
         total = total +18990;}
@@ -1140,13 +1288,13 @@ public class CodePlay extends javax.swing.JFrame {
        if(RbtnEfectivo.isSelected()){
         
         /**/mPago=1;//validara que el monto pagado por la compra en efectivo, puedaa entregar vuelto
-
+        mediopago="efectivo";
        }
         else if(RbtnTarjeta.isSelected()){
                 
             txtMontoIng.setText(Integer.toString(total));
             mPago=2;// vaidara que si la compra se efectua con tarjeta el monto debera ser equivalente al total a pagar, ya que si se paga con un monto mator no podra otorgar vuelto
-            
+            mediopago="debito";
            }
         
         if(total==0){
@@ -1174,46 +1322,57 @@ public class CodePlay extends javax.swing.JFrame {
 
     private void btnAcepCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcepCompraActionPerformed
         String rutBd=txtRutIng.getText();
-                    int pagado = Integer.parseInt(txtMontoIng.getText());
+                 int pagado=0;
+        
+                    if(total>0)
+                    { pagado = Integer.parseInt(txtMontoIng.getText());}
                     
-                    if(pagado>=total){ 
+                    if(pagado<total || total==0 ){
+                    JOptionPane.showMessageDialog(null, "transaccion invalida.","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null); 
+       
+                    } else if(mPago==2 && pagado>total){
+                    
+                        JOptionPane.showMessageDialog(null, "transaccion invalida por el medio de pago elegido.","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null); 
+                    
+                    
+                    }else if( (pagado>=total && mPago==1) || (pagado==total && mPago==2) ){ 
                         int vuelto=pagado-total;
                         txtVuelto.setText(vuelto+"$");
                     if(idpr==1){
-                       gbd.insertarVenta(folio, rutBd , idpr, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr,mediopago, fecha);
                     } 
                      if(idpr2==2){
-                       gbd.insertarVenta(folio, rutBd , idpr2, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr2,mediopago, fecha);
                     }
                      if(idpr3==3){
-                       gbd.insertarVenta(folio, rutBd , idpr3, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr3,mediopago, fecha);
                     }
                      if(idpr4==4){
-                       gbd.insertarVenta(folio, rutBd , idpr4, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr4,mediopago, fecha);
                     }
                      if(idpr5==5){
-                       gbd.insertarVenta(folio, rutBd , idpr5, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr5, mediopago, fecha);
                     }
                      if(idpr6==6){
-                       gbd.insertarVenta(folio, rutBd , idpr6, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr6, mediopago, fecha);
                     }
                      if(idpr7==7){
-                       gbd.insertarVenta(folio, rutBd , idpr7, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr7,mediopago, fecha);
                     }
                      if(idpr8==8){
-                       gbd.insertarVenta(folio, rutBd , idpr8, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr8, mediopago, fecha);
                     }
                      if(idpr9==(9)){
-                       gbd.insertarVenta(folio, rutBd , idpr9, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr9, mediopago, fecha);
                     }
                      if(idpr10==10){
-                       gbd.insertarVenta(folio, rutBd , idpr10, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr10, mediopago, fecha);
                     }
                      if(idpr11==11){
-                       gbd.insertarVenta(folio, rutBd , idpr11, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr11,mediopago, fecha);
                     }
                      if(idpr12==12){
-                       gbd.insertarVenta(folio, rutBd , idpr12, fecha);
+                       gbd.insertarVenta(folio, rutBd , idpr12, mediopago, fecha);
                     }
                      gbd.DettalleBoleta(tabDetalle, folio);
                      gbd.Total(tabTotal, folio);
@@ -1235,7 +1394,9 @@ public class CodePlay extends javax.swing.JFrame {
                     cbSpiderman.setSelected(false);
                     cbUncharted.setSelected(false);
                     cb3meses.setSelected(false);
-                    cb12meses.setSelected(false);}// TODO add your handling code here:
+                    cb12meses.setSelected(false);
+                    }
+// TODO add your handling code here:
     }//GEN-LAST:event_btnAcepCompraActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -1308,6 +1469,24 @@ public class CodePlay extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnBuscarActionPerformed
 
+    private void btnEliminarVentaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarVentaActionPerformed
+        // BOTON QUE ELIMINARA LA VENTA ATRAVEZ DEL FOLIO RESEÑADO EN EL TEXTFIELD
+        int nfolio = Integer.parseInt(txtFolioIng.getText());
+        System.out.println(nfolio);
+        if(nfolio>0){
+            gbd.eliminarVenta(nfolio);
+        }else{
+            JOptionPane.showMessageDialog(null, "opcion invalida "
+                ,"CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarVentaActionPerformed
+
+    private void btnVerVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerVentasActionPerformed
+        //MOSTRAR INFO ACTUALIZADA DE LAS VENTAS REALIZADAS
+        eliminarTotalVentas();
+        gbd.totalVentas(tabTotalVenta);                                                                // TODO add your handling code here:
+    }//GEN-LAST:event_btnVerVentasActionPerformed
+
     
     
     /**
@@ -1355,12 +1534,14 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JButton btnCancelarCompra;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JButton btnEliminarVenta;
     private javax.swing.JButton btnHome3;
     private javax.swing.JButton btnIngresar;
     private javax.swing.JButton btnLimpiaGC;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnMostrarJuegos;
+    private javax.swing.JButton btnVerVentas;
     private javax.swing.JCheckBox cb12meses;
     private javax.swing.JCheckBox cb3meses;
     private javax.swing.JCheckBox cbBattlefield;
@@ -1406,6 +1587,7 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1414,6 +1596,8 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
@@ -1423,14 +1607,17 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tabDetalle;
     private javax.swing.JTable tabTotal;
+    private javax.swing.JTable tabTotalVenta;
     private javax.swing.JTable tablaProducto;
     private javax.swing.JTextArea txArticulos;
     private javax.swing.JTextField txtApellidos;
     private javax.swing.JTextField txtCelectronico;
+    private javax.swing.JTextField txtFolioIng;
     private javax.swing.JTextField txtMontoIng;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtRut;
