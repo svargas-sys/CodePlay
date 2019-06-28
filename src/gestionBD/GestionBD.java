@@ -319,18 +319,17 @@ public class GestionBD {
         
     }   
         
-    }    //fin metodo
+    } //fin metodo
      
-
-    
-    
-
-     
-
-   public static void main(String[] args) {
-        GestionBD gbd= new GestionBD();
-        gbd.insertarProductos();
-        System.out.println("o");
-    }
-//
 }
+
+    
+    
+
+     
+
+//   public static void main(String[] args) {
+//        GestionBD gbd= new GestionBD();
+//        gbd.crearTablaVenta();
+//        System.out.println("o");
+//    }}
