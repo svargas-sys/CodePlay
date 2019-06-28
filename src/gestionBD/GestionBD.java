@@ -4,6 +4,8 @@ package gestionBD;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
+import javax.swing.UIManager;
+import principal.Splash;
 
 public  class GestionBD {
     
@@ -449,13 +451,22 @@ public  class GestionBD {
     }
 
 
+
+
+    
+    
+    public static void main(String[] args) {
+        
+                 try{
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            Splash s = new Splash();
+            s.setSize(400, 400);
+            s.setLocationRelativeTo(null);
+            s.setVisible(true);
+        
+    }catch(Exception e){
+            System.out.println(e.getMessage());
+    }
+        
+    }
 }
-    
-    
-//    public static void main(String[] args) {
-//        GestionBD gbd= new GestionBD();
-//        gbd.crearTablaVenta();
-//    }
-//     
-//
-//   }
