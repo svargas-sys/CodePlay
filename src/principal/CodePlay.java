@@ -24,6 +24,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Sergio Vargas
  */
+
 public class CodePlay extends javax.swing.JFrame {
 
     GestionBD gbd;

@@ -266,11 +266,6 @@ public class Actualizar extends javax.swing.JFrame {
         
             genero = "Femenino";
             
-        }else{
-        
-            JOptionPane.showMessageDialog(null, "Porfavor Seleccione el Genero", "Falta completar Genero", 
-                    JOptionPane.ERROR_MESSAGE);
-            
         }
           
         
