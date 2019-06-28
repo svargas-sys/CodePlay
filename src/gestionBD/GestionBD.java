@@ -235,8 +235,8 @@ public  class GestionBD {
                     "(FOLIO, RUTV, IDPRV, MEDIOPAGO, FECVN) VALUES " +
                     "('"+folio+"','"+rut+"','"+idproducto+"','"+mpago+"','"+fecha+"')";
             sentencia.executeUpdate(SQL);
-            JOptionPane.showMessageDialog(null, "VENTA INGRESADA!!", 
-                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "VENTA INGRESADA!!", 
+//                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
             sentencia.close();
             conexion.close();
         
