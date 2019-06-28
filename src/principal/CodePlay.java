@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
 public class CodePlay extends javax.swing.JFrame {
 
     GestionBD gbd;
-    int total=0, mPago=0, folio;
+    int total=0, mPago=1, folio=0;
     /*  */ int idpr=0,  idpr2=0, idpr3=0, idpr4=0, idpr5=0, idpr6=0, idpr7=0, idpr8=0, idpr9=0, idpr10=0, idpr11=0, idpr12=0;//  tomaran el id del producto seleccionado para insertarlo en la tabla venta cuando se concrete la compra
            String salida, fecha;
     public CodePlay() {
@@ -42,7 +42,7 @@ public class CodePlay extends javax.swing.JFrame {
       /**/  ButtonGroup so = new ButtonGroup();
         /**/so.add(RbtnEfectivo);
         /**/so.add(RbtnTarjeta);
-       
+             RbtnEfectivo.setSelected(true);
         
     }
     public void eliminarDettalleBoleta(){
@@ -53,7 +53,28 @@ public class CodePlay extends javax.swing.JFrame {
         }
         tb.setRowCount(12);
         //cargaTicket();
+        DefaultTableModel bt = (DefaultTableModel) tabTotal.getModel();
+        int b = tabTotal.getRowCount()-1;
+        for (int i = b; i >= 0; i--) {           
+        bt.removeRow(bt.getRowCount()-1);
+        }
+        bt.setRowCount(1);
+
     }
+    
+    public void eliminarTotalBoleta(){
+        
+        //cargaTicket();
+        DefaultTableModel bt = (DefaultTableModel) tabTotal.getModel();
+        int b = tabTotal.getRowCount()-1;
+        for (int i = b; i >= 0; i--) {           
+        bt.removeRow(bt.getRowCount()-1);
+        }
+        bt.setRowCount(1);
+
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -151,6 +172,8 @@ public class CodePlay extends javax.swing.JFrame {
         tabTotal = new javax.swing.JTable();
         jScrollPane5 = new javax.swing.JScrollPane();
         tabDetalle = new javax.swing.JTable();
+        btnLimpiaGC = new javax.swing.JButton();
+        btnCancelarCompra = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -808,50 +831,65 @@ public class CodePlay extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tabDetalle);
 
+        btnLimpiaGC.setText("limpiar");
+        btnLimpiaGC.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiaGCGCActionPerformed(evt);
+            }
+        });
+
+        btnCancelarCompra.setText("cancelar");
+        btnCancelarCompra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarCompraActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(15, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(btnAcepCompra)
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtRutIng)
-                                    .addComponent(txtMontoIng, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)))
-                            .addComponent(jLabel32)
-                            .addComponent(jLabel33))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(btnLimpiaGC)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                                .addComponent(jLabel34)
+                                .addGap(25, 25, 25))
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel9Layout.createSequentialGroup()
+                                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(txtRutIng)
+                                            .addComponent(txtMontoIng, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
+                                        .addGap(26, 26, 26)
+                                        .addComponent(btnAcepCompra))
+                                    .addComponent(jLabel32)
+                                    .addComponent(jLabel33))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtVuelto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancelarCompra))
+                        .addGap(71, 71, 71)
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel31)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel34)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtVuelto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(87, 87, 87)
                                 .addComponent(jLabel35)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGap(33, 33, 33)
                                 .addComponent(txtTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(0, 9, Short.MAX_VALUE)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addGap(8, 8, 8)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jLabel32)
@@ -860,14 +898,21 @@ public class CodePlay extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel33)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtMontoIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtMontoIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnCancelarCompra)
+                            .addComponent(btnAcepCompra)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel31)
+                        .addGap(8, 8, 8)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtVuelto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAcepCompra)
                     .addComponent(jLabel34)
-                    .addComponent(jLabel35))
+                    .addComponent(jLabel35)
+                    .addComponent(btnLimpiaGC))
                 .addGap(76, 76, 76)
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
@@ -922,7 +967,10 @@ public class CodePlay extends javax.swing.JFrame {
         cbUncharted.setSelected(false);
         cb3meses.setSelected(false);
         cb12meses.setSelected(false);
+        RbtnEfectivo.setSelected(true);
+       
         total =0;
+        mPago=1;
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
@@ -979,21 +1027,21 @@ public class CodePlay extends javax.swing.JFrame {
             idpr6=0;}
         
         if(cbLastofUs.isSelected()){
-        salida = salida + "The Last of US $19.990" + nl;
+        salida = salida + "Resident Evil 4 $19.990" + nl;
         /**/idpr7=7;
         total = total +19990;}
         else{
             idpr7=0;}
         
         if(cbResident.isSelected()){
-        salida = salida + "Resident Evil 4 $19.990" + nl;
+        salida = salida + "Spiderman $18.990" + nl;
         /**/idpr8=8;
         total = total +19990;}
         else{
             idpr8=0;}
         
         if(cbSpiderman.isSelected()){
-        salida = salida + "Spiderman $18.990" + nl;
+        salida = salida + "The Last of US $19.990" + nl;
         /**/idpr9=9;
         total = total +18990;}
         else{
@@ -1074,10 +1122,6 @@ public class CodePlay extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "no puede concretarse la seleccion de articulos \n "
                                       + "si no ah seleccionado alguno(s) \n"
                                       + "favor de seleccionar productos","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
-        }else if(mPago==0){
-        JOptionPane.showMessageDialog(null, "no puede concretarse la seleccion de articulos \n "
-                                      + "si no ah seleccionado alguno(s) \n"
-                                      + "favor de seleccionar productos","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
         }else{
             
             
@@ -1143,7 +1187,24 @@ public class CodePlay extends javax.swing.JFrame {
                      gbd.DettalleBoleta(tabDetalle, folio);
                      gbd.Total(tabTotal, folio);
                      total=0;
-                     }// TODO add your handling code here:
+                     RbtnEfectivo.setSelected(true);
+                     mPago=1;
+                    
+                    
+                    txtSeleccionado.setText("");
+                    TextFiTotal.setText("");
+                    cbFarcry.setSelected(false);
+                    cbFifa19.setSelected(false);
+                    cbBattlefield.setSelected(false);
+                    cbGodofwar.setSelected(false);
+                    cbGta.setSelected(false);
+                    cbHorizon.setSelected(false);
+                    cbLastofUs.setSelected(false);
+                    cbResident.setSelected(false);
+                    cbSpiderman.setSelected(false);
+                    cbUncharted.setSelected(false);
+                    cb3meses.setSelected(false);
+                    cb12meses.setSelected(false);}// TODO add your handling code here:
     }//GEN-LAST:event_btnAcepCompraActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
@@ -1151,6 +1212,55 @@ public class CodePlay extends javax.swing.JFrame {
         gbd.Eliminar(Rut);
         txtRut.setText("");
     }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnLimpiaGCGCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiaGCGCActionPerformed
+           if(total==0){
+           txtRutIng.setText(" ");
+           txtMontoIng.setText(" ");
+           txtVuelto.setText(" ");
+           txtTotalPagar.setText(" ");
+           txArticulos.setText(" ");
+           eliminarDettalleBoleta();
+           RbtnEfectivo.setSelected(true);
+           
+           }   else{
+                       JOptionPane.showMessageDialog(null, "accion funcional solo solo al realizar la compra. "
+                               ,"CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
+           }     // TODO add your handling code here:
+    }//GEN-LAST:event_btnLimpiaGCGCActionPerformed
+
+    private void btnCancelarCompraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarCompraActionPerformed
+                  
+        txtRutIng.setText(" ");
+           txtMontoIng.setText(" ");
+           txtVuelto.setText(" ");
+           txtTotalPagar.setText(" ");
+           txArticulos.setText(" ");
+           eliminarDettalleBoleta();
+            RbtnEfectivo.setSelected(true);
+            
+            
+            total=0;         
+            mPago=1;
+            idpr=0;  idpr2=0; idpr3=0; idpr4=0; idpr5=0; idpr6=0; idpr7=0; idpr8=0; idpr9=0; idpr10=0; idpr11=0; idpr12=0;
+            folio=0;
+            
+            txtSeleccionado.setText("");
+                    TextFiTotal.setText("");
+                    cbFarcry.setSelected(false);
+                    cbFifa19.setSelected(false);
+                    cbBattlefield.setSelected(false);
+                    cbGodofwar.setSelected(false);
+                    cbGta.setSelected(false);
+                    cbHorizon.setSelected(false);
+                    cbLastofUs.setSelected(false);
+                    cbResident.setSelected(false);
+                    cbSpiderman.setSelected(false);
+                    cbUncharted.setSelected(false);
+                    cb3meses.setSelected(false);
+                    cb12meses.setSelected(false);
+         // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelarCompraActionPerformed
 
     
     
@@ -1196,10 +1306,12 @@ public class CodePlay extends javax.swing.JFrame {
     private javax.swing.JTextField TextFiTotal;
     private javax.swing.JButton btnAcepCompra;
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCancelarCompra;
     private javax.swing.JButton btnConfirmar;
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnHome3;
     private javax.swing.JButton btnIngresar;
+    private javax.swing.JButton btnLimpiaGC;
     private javax.swing.JButton btnLimpiar;
     private javax.swing.JButton btnModificar;
     private javax.swing.JButton btnMostrarJuegos;
