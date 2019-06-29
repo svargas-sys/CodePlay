@@ -22,7 +22,7 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 import principal.Splash;
 
-public  class GestionBD {
+public class GestionBD {
     
     static Connection conexion = null;
     static Statement sentencia = null;
@@ -74,7 +74,7 @@ public  class GestionBD {
         
     }    
     
-    public void insertarClientes(int Rut, String nombre, String apellidos,String genero, String correo){
+    public static void insertarClientes(int Rut, String nombre, String apellidos,String genero, String correo){
         
         try{
 
@@ -99,7 +99,7 @@ public  class GestionBD {
     }
     
     
-    public void VerDatos(JTable tablaProducto){   //CONSULTA A UNA TABLA
+    public static void VerDatos(JTable tablaProducto){   //CONSULTA A UNA TABLA
         
         try{
             Class.forName(DRIVER);
@@ -224,7 +224,7 @@ public  class GestionBD {
     } 
      
     
-    public void insertarVenta(int folio, String rut, int idproducto, String mpago, String fecha){
+    public static void insertarVenta(int folio, String rut, int idproducto, String mpago, String fecha){
         
         
         try{
@@ -248,7 +248,7 @@ public  class GestionBD {
     }
     
     
-    public void DettalleBoleta(JTable tablaProducto, int folio){ //CONSULTA A DOS TABLAS
+    public static void DettalleBoleta(JTable tablaProducto, int folio){ //CONSULTA A DOS TABLAS
         //MOSTRARA EL DETALLE DE LA VENTA REALIZADA
         
         try{
@@ -283,7 +283,7 @@ public  class GestionBD {
     }  
         
     }
-     public void Total(JTable tablaProducto, int folio){  //CONSULTA A 3 TABLAS
+     public static void Total(JTable tablaProducto, int folio){  //CONSULTA A 3 TABLAS
          //MOSTRARA LA INFO GENERAL DE LAS VENTAS REALIZADAS 
         
         try{
@@ -324,7 +324,7 @@ public  class GestionBD {
     }//FIN METODO 
      }
        
-     public void totalVentas(JTable tabla){ // COMO DICE SU NOMBRE MOSTRARA LAS VENTAS REALIZADAS
+     public static void totalVentas(JTable tabla){ // COMO DICE SU NOMBRE MOSTRARA LAS VENTAS REALIZADAS
         
         try{
             Class.forName(DRIVER);
@@ -363,7 +363,7 @@ public  class GestionBD {
     }}
       
      
-     public void eliminarVenta( int nfolio){//ELIMINA LA VENTA SEGUN FOLIO SELECCIONADO
+     public static void eliminarVenta( int nfolio){//ELIMINA LA VENTA SEGUN FOLIO SELECCIONADO
         
         try{
             Class.forName(DRIVER);
@@ -387,7 +387,7 @@ public  class GestionBD {
     }
      
 
-         public void Eliminar(int Rut){
+         public static void Eliminar(int Rut){
         
         try{
             Class.forName(DRIVER);
@@ -458,21 +458,21 @@ public  class GestionBD {
     }
 
 
-
-    
-    
-    public static void main(String[] args) {
-        
-                 try{
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-            Splash s = new Splash();
-            s.setSize(400, 400);
-            s.setLocationRelativeTo(null);
-            s.setVisible(true);
-        
-    }catch(      ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e){
-            System.out.println(e.getMessage());
-    }
-        
-    }
 }
+    
+    
+//    public static void main(String[] args) {
+//        
+//                 try{
+//            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+//            Splash s = new Splash();
+//            s.setSize(400, 400);
+//            s.setLocationRelativeTo(null);
+//            s.setVisible(true);
+//        
+//    }catch(      ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e){
+//            System.out.println(e.getMessage());
+//    }
+//        
+//    }
+//}
