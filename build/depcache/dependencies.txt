@@ -262,6 +262,7 @@ java.awt.Container
 javax.swing.JTable
 javax.swing.JTextArea
 principal.CodePlay
+principal.CodePlay$17
 principal.CodePlay$16
 principal.CodePlay$15
 javax.swing.GroupLayout
@@ -306,10 +307,15 @@ java.lang.Object
 principal.QuienesSomos
 java.awt.event.ActionListener
 principal.QuienesSomos$1
-||:principal.CodePlay$16
+||:principal.CodePlay$17
 java.lang.Object
 principal.CodePlay
 java.lang.Runnable
+principal.CodePlay$17
+||:principal.CodePlay$16
+java.lang.Object
+principal.CodePlay
+java.awt.event.ActionListener
 principal.CodePlay$16
 ||:principal.CodePlay$15
 java.lang.Object
