@@ -720,10 +720,7 @@ public class CodePlay extends javax.swing.JFrame {
                     .addGroup(jPanel8Layout.createSequentialGroup()
                         .addGap(38, 38, 38)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addComponent(jLabel25)
-                                .addGap(89, 89, 89)
-                                .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel25)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -733,7 +730,8 @@ public class CodePlay extends javax.swing.JFrame {
                                         .addGap(64, 64, 64)
                                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, 327, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                     .addGroup(jPanel8Layout.createSequentialGroup()
                                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jLabel28)
@@ -766,14 +764,11 @@ public class CodePlay extends javax.swing.JFrame {
                         .addGap(39, 39, 39)
                         .addComponent(btnModificar))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel25))
-                            .addGroup(jPanel8Layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(11, 11, 11)
+                        .addGap(21, 21, 21)
+                        .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(txtRut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(8, 8, 8)
                         .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel8Layout.createSequentialGroup()
                                 .addGap(3, 3, 3)
@@ -839,7 +834,7 @@ public class CodePlay extends javax.swing.JFrame {
             }
         });
         jPanel9.add(btnAcepCompra);
-        btnAcepCompra.setBounds(110, 150, 120, 23);
+        btnAcepCompra.setBounds(110, 170, 120, 23);
 
         jLabel32.setText("Rut Cliente:");
         jPanel9.add(jLabel32);
@@ -910,9 +905,9 @@ public class CodePlay extends javax.swing.JFrame {
             }
         });
         jPanel9.add(btnCancelarCompra);
-        btnCancelarCompra.setBounds(110, 210, 120, 23);
+        btnCancelarCompra.setBounds(110, 230, 120, 23);
 
-        jTabbedPane2.addTab("Gestion Compra (BOLETA)", jPanel9);
+        jTabbedPane2.addTab("Gestion Venta", jPanel9);
 
         jPanel4.setBackground(new java.awt.Color(102, 255, 102));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestion de Venta"));
@@ -1050,7 +1045,7 @@ public class CodePlay extends javax.swing.JFrame {
                 .addGap(44, 44, 44))
         );
 
-        jTabbedPane2.addTab("Gestion venta", jPanel4);
+        jTabbedPane2.addTab("Anular Venta", jPanel4);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -1370,11 +1365,11 @@ public class CodePlay extends javax.swing.JFrame {
 
     private void btnLimpiaGCGCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiaGCGCActionPerformed
            if(total==0){
-           txtRutIng.setText(" ");
-           txtMontoIng.setText(" ");
-           txtVuelto.setText(" ");
-           txtTotalPagar.setText(" ");
-           txArticulos.setText(" ");
+           txtRutIng.setText("");
+           txtMontoIng.setText("");
+           txtVuelto.setText("");
+           txtTotalPagar.setText("");
+           txArticulos.setText("");
            eliminarDettalleBoleta();
            RbtnEfectivo.setSelected(true);
            
