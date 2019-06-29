@@ -805,33 +805,57 @@ public class CodePlay extends javax.swing.JFrame {
 
         jPanel9.setBackground(new java.awt.Color(102, 255, 102));
         jPanel9.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de Compra"));
+        jPanel9.setLayout(null);
 
         txArticulos.setColumns(20);
         txArticulos.setRows(5);
         jScrollPane3.setViewportView(txArticulos);
 
+        jPanel9.add(jScrollPane3);
+        jScrollPane3.setBounds(300, 50, 256, 87);
+
         jLabel31.setText("Articulos seleccionados:");
+        jPanel9.add(jLabel31);
+        jLabel31.setBounds(300, 30, 114, 14);
 
         txtTotalPagar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtTotalPagarActionPerformed(evt);
             }
         });
+        jPanel9.add(txtTotalPagar);
+        txtTotalPagar.setBounds(430, 160, 121, 30);
+        jPanel9.add(txtRutIng);
+        txtRutIng.setBounds(140, 50, 123, 30);
+        jPanel9.add(txtVuelto);
+        txtVuelto.setBounds(430, 240, 121, 30);
+        jPanel9.add(txtMontoIng);
+        txtMontoIng.setBounds(430, 200, 121, 30);
 
-        btnAcepCompra.setText("Aceptar");
+        btnAcepCompra.setText("Realizar Venta");
         btnAcepCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcepCompraActionPerformed(evt);
             }
         });
+        jPanel9.add(btnAcepCompra);
+        btnAcepCompra.setBounds(110, 150, 120, 23);
 
         jLabel32.setText("Rut Cliente:");
+        jPanel9.add(jLabel32);
+        jLabel32.setBounds(50, 60, 80, 14);
 
         jLabel33.setText("monto ingresado:");
+        jPanel9.add(jLabel33);
+        jLabel33.setBounds(300, 210, 110, 14);
 
         jLabel34.setText("Vuelto:");
+        jPanel9.add(jLabel34);
+        jLabel34.setBounds(300, 250, 90, 14);
 
         jLabel35.setText("Total a pagar:");
+        jPanel9.add(jLabel35);
+        jLabel35.setBounds(300, 170, 110, 14);
 
         tabTotal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -842,6 +866,9 @@ public class CodePlay extends javax.swing.JFrame {
             }
         ));
         jScrollPane4.setViewportView(tabTotal);
+
+        jPanel9.add(jScrollPane4);
+        jScrollPane4.setBounds(34, 512, 693, 45);
 
         tabDetalle.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -864,12 +891,17 @@ public class CodePlay extends javax.swing.JFrame {
         ));
         jScrollPane5.setViewportView(tabDetalle);
 
-        btnLimpiaGC.setText("limpiar");
+        jPanel9.add(jScrollPane5);
+        jScrollPane5.setBounds(34, 297, 693, 183);
+
+        btnLimpiaGC.setText("Limpiar Formulario");
         btnLimpiaGC.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLimpiaGCGCActionPerformed(evt);
             }
         });
+        jPanel9.add(btnLimpiaGC);
+        btnLimpiaGC.setBounds(579, 173, 150, 30);
 
         btnCancelarCompra.setText("cancelar");
         btnCancelarCompra.addActionListener(new java.awt.event.ActionListener() {
@@ -877,82 +909,8 @@ public class CodePlay extends javax.swing.JFrame {
                 btnCancelarCompraActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(15, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addComponent(btnLimpiaGC)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
-                                .addComponent(jLabel34)
-                                .addGap(25, 25, 25))
-                            .addGroup(jPanel9Layout.createSequentialGroup()
-                                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel9Layout.createSequentialGroup()
-                                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(txtRutIng)
-                                            .addComponent(txtMontoIng, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE))
-                                        .addGap(26, 26, 26)
-                                        .addComponent(btnAcepCompra))
-                                    .addComponent(jLabel32)
-                                    .addComponent(jLabel33))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)))
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtVuelto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelarCompra))
-                        .addGap(71, 71, 71)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel31)
-                                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                                .addComponent(jLabel35)
-                                .addGap(33, 33, 33)
-                                .addComponent(txtTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 693, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(19, 19, 19))
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel32)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtRutIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel33)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtMontoIng, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCancelarCompra)
-                            .addComponent(btnAcepCompra)))
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel31)
-                        .addGap(8, 8, 8)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotalPagar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtVuelto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel34)
-                    .addComponent(jLabel35)
-                    .addComponent(btnLimpiaGC))
-                .addGap(76, 76, 76)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(68, Short.MAX_VALUE))
-        );
+        jPanel9.add(btnCancelarCompra);
+        btnCancelarCompra.setBounds(110, 210, 120, 23);
 
         jTabbedPane2.addTab("Gestion Compra (BOLETA)", jPanel9);
 
