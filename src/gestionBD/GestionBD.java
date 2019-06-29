@@ -34,6 +34,7 @@ public  class GestionBD {
         try{
             Class.forName(DRIVER);
             conexion = DriverManager.getConnection(URL);
+            
         
     }catch(ClassNotFoundException | SQLException e){
         
@@ -51,7 +52,7 @@ public  class GestionBD {
             conexion = DriverManager.getConnection(URL);
             
             sentencia = conexion.createStatement();
-            String SQL = "CREATE TABLE CLIENTES" +
+            String SQL = "CREATE TABLE VENTA" +
                     "(RUT        TEXT      PRIMARY KEY NOT NULL, " +
                     "NOMBRE    TEXT     NOT NULL, " +
                     "APELLIDOPAT    TEXT     NOT NULL, " +
@@ -444,25 +445,17 @@ public  class GestionBD {
             
             sentencia = conexion.createStatement();
             String SQL;
-            SQL = "DROP TABLE VENTA ";
+            SQL = "DROP TABLE CLIENTES ";
                     
             sentencia.executeUpdate(SQL);
             JOptionPane.showMessageDialog(null,"Tabla ELIMINADA!!","EXITO!",JOptionPane.INFORMATION_MESSAGE );
             sentencia.close();
             conexion.close();
-         
-
-    
+ 
         }catch(Exception e){
-           
             
-            
-        }
-         
-         
-         
+        } 
     }
-
 
 
 
