@@ -12,6 +12,7 @@
 //SERGIO VARGAS
 //JOSE MUÑOZ
 
+//SPLASH DEL PROGRAMA
 package principal;
 import com.sun.awt.AWTUtilities;
 import java.awt.event.ActionListener;
