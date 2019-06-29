@@ -5,17 +5,15 @@
  */
 package gestionBD;
 
-
 /**
  *
  * @author Sergio Vargas
  */
-public class arra {
+public class NewClass {
     
     public static void main(String[] args) {
         
-      
-        
+        gestionBD.GestionBD.crearTablaVenta();
         
     }
     

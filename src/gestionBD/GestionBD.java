@@ -14,10 +14,12 @@
 
 package gestionBD;
 
+import java.awt.HeadlessException;
 import java.sql.*;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import principal.Splash;
 
 public  class GestionBD {
@@ -29,7 +31,7 @@ public  class GestionBD {
     static String NOMBREBD = "CodePlay.sqlite";
     static String URL = "jdbc:sqlite:"+NOMBREBD;
     
-    public void crearBD(){
+    public static void crearBD(){
         
         try{
             Class.forName(DRIVER);
@@ -52,14 +54,14 @@ public  class GestionBD {
             conexion = DriverManager.getConnection(URL);
             
             sentencia = conexion.createStatement();
-            String SQL = "CREATE TABLE VENTA" +
+            String SQL = "CREATE TABLE CLIENTES" +
                     "(RUT        TEXT      PRIMARY KEY NOT NULL, " +
                     "NOMBRE    TEXT     NOT NULL, " +
                     "APELLIDOPAT    TEXT     NOT NULL, " +
                     "GENERO    TXT NOT NULL, "+
                     "CORREOELC    TEXT      NOT NULL)";
             sentencia.executeUpdate(SQL);
-            JOptionPane.showMessageDialog(null, "TABLA CLIENTES CREADA!!", 
+            JOptionPane.showMessageDialog(null, "TABLA CLIENTE CREADA!!", 
                     "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
             sentencia.close();
             conexion.close();
@@ -75,10 +77,7 @@ public  class GestionBD {
     public void insertarClientes(int Rut, String nombre, String apellidos,String genero, String correo){
         
         try{
-            
-            
-            
-            
+
             Class.forName(DRIVER);
             conexion = DriverManager.getConnection(URL);
             sentencia = conexion.createStatement();
@@ -132,7 +131,7 @@ public  class GestionBD {
         
     }//FIN METODO    
     
-     public void crearTablaPr(){
+     public static void crearTablaPr(){
         
         try{
             Class.forName(DRIVER);
@@ -160,7 +159,7 @@ public  class GestionBD {
        }
     
      
-     public void insertarProductos(){
+     public static void insertarProductos(){
         
         try{
             Class.forName(DRIVER);
@@ -194,7 +193,7 @@ public  class GestionBD {
     }
      
      
-    public void crearTablaVenta(){
+    public static void crearTablaVenta(){
         
         try{
             Class.forName(DRIVER);
@@ -408,10 +407,11 @@ public  class GestionBD {
     }   
         
     } //fin metodo
-     
-         public static void UPDATE(int oldRut, int Rut, String nombre, String apellidos, String genero, String correo){
          
-             
+
+     
+    public static void UPDATE(int oldRut, int Rut, String nombre, String apellidos, String genero, String correo){
+
         try{
             Class.forName(DRIVER);
             conexion = DriverManager.getConnection(URL);
@@ -437,7 +437,7 @@ public  class GestionBD {
        
     }
          
-         public  static void dropTabla(){ //BORRAR TABLAS
+         public static void dropTabla(){ //BORRAR TABLAS
     
         try{
             Class.forName(DRIVER);
@@ -445,14 +445,14 @@ public  class GestionBD {
             
             sentencia = conexion.createStatement();
             String SQL;
-            SQL = "DROP TABLE CLIENTES ";
+            SQL = "DROP TABLE PRODUCTO ";
                     
             sentencia.executeUpdate(SQL);
             JOptionPane.showMessageDialog(null,"Tabla ELIMINADA!!","EXITO!",JOptionPane.INFORMATION_MESSAGE );
             sentencia.close();
             conexion.close();
  
-        }catch(Exception e){
+        }catch(HeadlessException | ClassNotFoundException | SQLException e){
             
         } 
     }
@@ -470,7 +470,7 @@ public  class GestionBD {
             s.setLocationRelativeTo(null);
             s.setVisible(true);
         
-    }catch(Exception e){
+    }catch(      ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e){
             System.out.println(e.getMessage());
     }
         

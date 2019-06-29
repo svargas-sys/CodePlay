@@ -1354,7 +1354,9 @@ public class CodePlay extends javax.swing.JFrame {
                     cb3meses.setSelected(false);
                     cb12meses.setSelected(false);
                     }
-// TODO add your handling code here:
+                    JOptionPane.showMessageDialog(null, "Gracias por preferir CODE PLAY "
+                               ,"CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
+
     }//GEN-LAST:event_btnAcepCompraActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
