@@ -812,6 +812,12 @@ public class CodePlay extends javax.swing.JFrame {
 
         jLabel31.setText("Articulos seleccionados:");
 
+        txtTotalPagar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTotalPagarActionPerformed(evt);
+            }
+        });
+
         btnAcepCompra.setText("Aceptar");
         btnAcepCompra.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -882,8 +888,9 @@ public class CodePlay extends javax.swing.JFrame {
                     .addGroup(jPanel9Layout.createSequentialGroup()
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
                                 .addComponent(btnLimpiaGC)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 134, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 107, Short.MAX_VALUE)
                                 .addComponent(jLabel34)
                                 .addGap(25, 25, 25))
                             .addGroup(jPanel9Layout.createSequentialGroup()
@@ -896,7 +903,7 @@ public class CodePlay extends javax.swing.JFrame {
                                         .addComponent(btnAcepCompra))
                                     .addComponent(jLabel32)
                                     .addComponent(jLabel33))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)))
                         .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtVuelto, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnCancelarCompra))
@@ -950,7 +957,7 @@ public class CodePlay extends javax.swing.JFrame {
         jTabbedPane2.addTab("Gestion Compra (BOLETA)", jPanel9);
 
         jPanel4.setBackground(new java.awt.Color(102, 255, 102));
-        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("gestion de venta"));
+        jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder("Gestion de Venta"));
 
         tabTotalVenta.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1014,11 +1021,11 @@ public class CodePlay extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 153, 51));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder("deshacer venta"));
 
-        jLabel37.setText("n° de Folio:");
+        jLabel37.setText("N° de Folio:");
 
         txtFolioIng.setText("0");
 
-        btnEliminarVenta.setText("deshacer");
+        btnEliminarVenta.setText("Anular Compra");
         btnEliminarVenta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarVentaActionPerformed(evt);
@@ -1031,12 +1038,12 @@ public class CodePlay extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel37)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtFolioIng, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(36, 36, 36)
-                .addComponent(btnEliminarVenta)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtFolioIng, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(btnEliminarVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1049,7 +1056,7 @@ public class CodePlay extends javax.swing.JFrame {
                 .addContainerGap(54, Short.MAX_VALUE))
         );
 
-        btnVerVentas.setText("visualizar ventas actuales");
+        btnVerVentas.setText("Ver Historico de Ventas");
         btnVerVentas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnVerVentasActionPerformed(evt);
@@ -1062,15 +1069,13 @@ public class CodePlay extends javax.swing.JFrame {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(32, Short.MAX_VALUE)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(19, 19, 19))
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 680, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnVerVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(117, 117, 117))))
+                        .addGap(68, 68, 68)
+                        .addComponent(btnVerVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(19, 19, 19))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1142,96 +1147,95 @@ public class CodePlay extends javax.swing.JFrame {
     }//GEN-LAST:event_btnLimpiarActionPerformed
 
     private void btnMostrarJuegosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarJuegosActionPerformed
-        
-        
-                
+    
          salida = ""; //variable contador
-        total =0;
+         total =0;
          String nl = System.getProperty("line.separator");//SE DECLARA COMO NL STRING PARA USARLO COMO SALTO
-                                                         //DE LIENA EN MENSAJE JOPTIONPANE
+                                                          //DE LINEA EN MENSAJE JOPTIONPANE
                                                          
         if(cbFarcry.isSelected())
         { salida = salida + "Farcry 4 $16.990" + nl;
          /**/idpr=1;
          total = total +16990;
-             }
-        else{
+             
+        }else{
             idpr=0;}
         
         if(cbFifa19.isSelected()){
         salida = salida + "Fifa 19 $29.990" + nl;
          /**/idpr2=2;
-       total = total +29990;}
-        else{
+        total = total +29990;
+        }else{
             idpr2=0;}
         
         if(cbBattlefield.isSelected()){
         salida = salida + "Battlefield $19.990" + nl;
         /**/idpr3=3;
-        total = total +19990;}
-        else{
+        total = total +19990;
+        }else{
             idpr3=0;}
-        if(cbGodofwar.isSelected()){
         
+        if(cbGodofwar.isSelected()){
         salida = salida + "God of War $19.990" + nl;
         /**/idpr4=4;
-        total = total +19990;}
-        else{
+        total = total +19990;
+        }else{
             idpr4=0;}
         
         if(cbGta.isSelected()){
         /**/salida = salida + "GTA V $18.990" + nl;
         idpr5=5;
-        total = total +18990;}
-        else{
+        total = total +18990;
+        }else{
             idpr5=0;}
         
         if(cbHorizon.isSelected()){
         salida = salida + "Horizon Zero $19.990" + nl;
         /**/idpr6=6;
-        total = total +19990;}
-        else{
+        total = total +19990;
+        }else{
             idpr6=0;}
         
         if(cbResident.isSelected()){
         salida = salida + "Resident Evil 4 $19.990" + nl;
         /**/idpr7=7;
-        total = total +19990;}
-        else{
+        total = total +19990;
+        }else{
             idpr7=0;}
         
         if( cbSpiderman.isSelected()){
         salida = salida + "Spiderman $18.990" + nl;
         /**/idpr8=8;
-        total = total +19990;}
-        else{
+        total = total +19990;
+        }else{
             idpr8=0;}
         
         if(cbLastofUs.isSelected()){
         salida = salida + "The Last of US $19.990" + nl;
         /**/idpr9=9;
-        total = total +18990;}
-        else{
+        total = total +18990;
+        }else{
             idpr9=0;}
         
         if(cbUncharted.isSelected()){
         salida = salida + "Uncharted 4 $19.990" + nl;
         /**/idpr10=10;
-        total = total +19990;}
-        else{
+        total = total +19990;
+        }else{
             idpr10=0;}
         
         if(cb3meses.isSelected()){
         salida = salida + "Membresia de 3 Meses $17.990" + nl;
         /**/idpr11=11;
-        total = total +17990;}else{
+        total = total +17990;
+        }else{
             idpr11=0;}
         
         if(cb12meses.isSelected()){
         salida = salida + "Membresia de 12 Meses $39.990" + nl;
         /**/idpr12=12;
-        total = total +39990;}
-        else{
+        total = total +39990;
+        }else{
             idpr12=0;}
         
         TextFiTotal.setText(Integer.toString(total));
@@ -1289,19 +1293,19 @@ public class CodePlay extends javax.swing.JFrame {
        if(RbtnEfectivo.isSelected()){
         
         /**/mPago=1;//validara que el monto pagado por la compra en efectivo, puedaa entregar vuelto
-        mediopago="efectivo";
+        mediopago="Efectivo";
        }
         else if(RbtnTarjeta.isSelected()){
                 
             txtMontoIng.setText(Integer.toString(total));
             mPago=2;// vaidara que si la compra se efectua con tarjeta el monto debera ser equivalente al total a pagar, ya que si se paga con un monto mator no podra otorgar vuelto
-            mediopago="debito";
+            mediopago="Debito";
            }
         
         if(total==0){
-            JOptionPane.showMessageDialog(null, "no puede concretarse la seleccion de articulos \n "
-                                      + "si no ah seleccionado alguno(s) \n"
-                                      + "favor de seleccionar productos","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
+            JOptionPane.showMessageDialog(null, "No se puede concretar la seleccion de articulos \n "
+                                      + "si no ha seleccionado alguno(s) \n"
+                                      + "favor de seleccionar productos","CODE PLAY",JOptionPane.ERROR_MESSAGE,null);
         }else{
             
             
@@ -1316,7 +1320,7 @@ public class CodePlay extends javax.swing.JFrame {
         /**/txArticulos.setText(salida+"\n en fecha "+a+"-"+m+"-"+d);
         /**/ fecha= a+"-"+m+"-"+d;//guardara el año mes y dia para insertarla en la tabla ventas
          /**/folio = ((hr+min)*10)+sec; // sera el numero de folio para la venta 
-       /**/ txtTotalPagar.setText(total+" $");}
+       /**/ txtTotalPagar.setText("$ "+total);}
         txtVuelto.setText(" ");
         eliminarDettalleBoleta();// TODO add your handling code here:
     }//GEN-LAST:event_btnConfirmarActionPerformed
@@ -1329,16 +1333,16 @@ public class CodePlay extends javax.swing.JFrame {
                     { pagado = Integer.parseInt(txtMontoIng.getText());}
                     
                     if(pagado<total || total==0 ){
-                    JOptionPane.showMessageDialog(null, "transaccion invalida.","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null); 
+                    JOptionPane.showMessageDialog(null, "Transacción inválida.","CODE PLAY",JOptionPane.ERROR_MESSAGE,null); 
        
                     } else if(mPago==2 && pagado>total){
                     
-                        JOptionPane.showMessageDialog(null, "transaccion invalida por el medio de pago elegido.","CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null); 
+                        JOptionPane.showMessageDialog(null, "Transacción inválida por el medio de pago elegido.","CODE PLAY",JOptionPane.ERROR_MESSAGE,null); 
                     
                     
                     }else if( (pagado>=total && mPago==1) || (pagado==total && mPago==2) ){ 
                         int vuelto=pagado-total;
-                        txtVuelto.setText(vuelto+"$");
+                        txtVuelto.setText("$ "+vuelto);
                     if(idpr==1){
                        gbd.insertarVenta(folio, rutBd , idpr,mediopago, fecha);
                     } 
@@ -1417,7 +1421,7 @@ public class CodePlay extends javax.swing.JFrame {
            RbtnEfectivo.setSelected(true);
            
            }   else{
-                       JOptionPane.showMessageDialog(null, "accion funcional solo solo al realizar la compra. "
+                       JOptionPane.showMessageDialog(null, "Acción funcional solo al realizar la compra. "
                                ,"CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
            }     // TODO add your handling code here:
     }//GEN-LAST:event_btnLimpiaGCGCActionPerformed
@@ -1472,9 +1476,11 @@ public class CodePlay extends javax.swing.JFrame {
         System.out.println(nfolio);
         if(nfolio>0){
             gbd.eliminarVenta(nfolio);
+            txtFolioIng.setText("0");
         }else{
-            JOptionPane.showMessageDialog(null, "opcion invalida "
-                ,"CODE PLAY",JOptionPane.INFORMATION_MESSAGE,null);
+            JOptionPane.showMessageDialog(null, "Opción inválida "
+                ,"CODE PLAY",JOptionPane.ERROR_MESSAGE,null);
+            
         }// TODO add your handling code here:
     }//GEN-LAST:event_btnEliminarVentaActionPerformed
 
@@ -1483,6 +1489,10 @@ public class CodePlay extends javax.swing.JFrame {
         eliminarTotalVentas();
         gbd.totalVentas(tabTotalVenta);                                                                // TODO add your handling code here:
     }//GEN-LAST:event_btnVerVentasActionPerformed
+
+    private void txtTotalPagarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTotalPagarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTotalPagarActionPerformed
 
     
     
