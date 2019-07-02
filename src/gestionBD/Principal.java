@@ -15,6 +15,8 @@ import principal.Splash;
  */
 public class Principal {
     
+    
+    
     public static void main(String[] args) {
         
         try{
@@ -23,6 +25,11 @@ public class Principal {
             s.setSize(400, 400);
             s.setLocationRelativeTo(null);
             s.setVisible(true);
+            gestionBD.GestionBD.crearTabla();
+            gestionBD.GestionBD.crearTablaPr();
+            gestionBD.GestionBD.insertarProductos();
+            gestionBD.GestionBD.crearTablaVenta();
+            
         
         }catch(      ClassNotFoundException | IllegalAccessException | InstantiationException | UnsupportedLookAndFeelException e){
             System.out.println(e.getMessage());

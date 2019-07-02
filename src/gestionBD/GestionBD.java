@@ -61,14 +61,14 @@ public class GestionBD {
                     "GENERO    TXT NOT NULL, "+
                     "CORREOELC    TEXT      NOT NULL)";
             sentencia.executeUpdate(SQL);
-            JOptionPane.showMessageDialog(null, "TABLA CLIENTE CREADA!!", 
-                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "TABLA CLIENTE CREADA!!", 
+//                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
             sentencia.close();
             conexion.close();
         
     }catch(ClassNotFoundException | SQLException e){
         
-        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
+//        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
         
     }        
         
@@ -146,14 +146,14 @@ public class GestionBD {
                     "DETALLE  TEXT NOT NULL, "+
                     "PRECIO INT NOT NULL)";
             sentencia.executeUpdate(SQL);
-            JOptionPane.showMessageDialog(null, "TABLA PRODUCTO CREADA!!", 
-                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "TABLA PRODUCTO CREADA!!", 
+//                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
             sentencia.close();
             conexion.close();
         
     }catch(ClassNotFoundException | SQLException e){
         
-        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
+//        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
         
     }        
        }
@@ -180,14 +180,14 @@ public class GestionBD {
                     + "(11,'MEMBRESIA_PSPLUS_3','MAMBRESIA DE SUSCRIPCION','PLAYSTATION','MEMBRESIA A PS PLUS POR 3 MESES',17990),"
                     + "(12,'MEMBRESIA_PSPLUS_ANUAL','MEMBRESIA DE SUSCRIPCION','PLAYSTATION','MEMBRECIA A PS PLUS POR 12 MESES',39990)";
             sentencia.executeUpdate(SQL);
-            JOptionPane.showMessageDialog(null, "PRODUCTOS INGRESADOS!!", 
-                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "PRODUCTOS INGRESADOS!!", 
+//                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
             sentencia.close();
             conexion.close();
         
     }catch(ClassNotFoundException | SQLException e){
         
-        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
+//        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
         
     }   
     }
@@ -210,14 +210,14 @@ public class GestionBD {
                     " FOREIGN KEY(IDPRV) REFERENCES PRODUCTO(IDPR))";
                  
             sentencia.executeUpdate(SQL);
-            JOptionPane.showMessageDialog(null, "TABLA VENTA CREADA!!", 
-                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
+//            JOptionPane.showMessageDialog(null, "TABLA VENTA CREADA!!", 
+//                    "CODE PLAY", JOptionPane.INFORMATION_MESSAGE);
             sentencia.close();
             conexion.close();
         
     }catch(ClassNotFoundException | SQLException e){
         
-        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
+//        JOptionPane.showMessageDialog(null, "Error: " + e, "Error!!", JOptionPane.ERROR_MESSAGE);
         
     }               
         
