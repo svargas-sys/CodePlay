@@ -10,6 +10,8 @@ Programa para negocios dedicado a la venta de video juegos el cual consiste con 
 :smiley:
 :relaxed:
 
+![](https://raw.githubusercontent.com/svargas-sys/CodePlay/master/src/imagenes/app2.JPG)
 
+![](https://raw.githubusercontent.com/svargas-sys/CodePlay/master/src/imagenes/app1.JPG)
 
 
